@@ -50,7 +50,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className={`transition-all duration-500 ease-out transform ${
+      className={`transition-all duration-700 ease-out transform ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
       }`}
       style={{ transitionDelay: `${index * 0.1}s` }}
@@ -100,15 +100,15 @@ export function ProjectsSection() {
   const [headerRef, isHeaderVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.5, triggerOnce: true });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="projects" 
+      id="projects"
       className="py-16 md:py-24 bg-background"
     >
       <div className="container mx-auto max-w-screen-xl px-4">
-        <header 
+        <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-500 ease-out ${
+          className={`mb-12 text-center transition-all duration-700 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
            style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
@@ -129,4 +129,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-

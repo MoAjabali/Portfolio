@@ -14,15 +14,15 @@ export function AboutMeSection() {
   const [card3Ref, isCard3Visible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="about" 
+      id="about"
       className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
     >
       <div className="container mx-auto max-w-screen-lg px-4">
-        <header 
+        <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-500 ease-out ${
+          className={`mb-12 text-center transition-all duration-700 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
@@ -34,11 +34,11 @@ export function AboutMeSection() {
             A Glimpse into My World
           </p>
         </header>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          <div 
+          <div
             ref={imageRef}
-            className={`md:col-span-1 flex justify-center transition-all duration-500 ease-out ${
+            className={`md:col-span-1 flex justify-center transition-all duration-700 ease-out ${
               isImageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{ transitionDelay: isImageVisible ? '0.1s' : '0s' }}
@@ -52,11 +52,11 @@ export function AboutMeSection() {
               data-ai-hint="profile professional"
             />
           </div>
-          
+
           <div className="md:col-span-2 space-y-6">
             <div
               ref={card1Ref}
-              className={`transition-all duration-500 ease-out ${
+              className={`transition-all duration-700 ease-out ${
                 isCard1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: isCard1Visible ? '0.15s' : '0s' }}
@@ -82,7 +82,7 @@ export function AboutMeSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div
                 ref={card2Ref}
-                className={`transition-all duration-500 ease-out ${
+                className={`transition-all duration-700 ease-out ${
                   isCard2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: isCard2Visible ? '0.2s' : '0s' }}
@@ -102,7 +102,7 @@ export function AboutMeSection() {
               </div>
               <div
                 ref={card3Ref}
-                className={`transition-all duration-500 ease-out ${
+                className={`transition-all duration-700 ease-out ${
                   isCard3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: isCard3Visible ? '0.25s' : '0s' }}
@@ -126,4 +126,3 @@ export function AboutMeSection() {
     </section>
   );
 }
-

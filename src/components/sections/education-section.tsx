@@ -31,9 +31,9 @@ function EducationTimelineItem({ edu, index }: EducationTimelineItemProps) {
   const [itemRef, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <div 
+    <div
       ref={itemRef}
-      className={`mb-12 relative flex items-start transition-all duration-500 ease-out ${
+      className={`mb-12 relative flex items-start transition-all duration-700 ease-out ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10' // Slide from left
       }`}
       style={{ transitionDelay: `${index * 0.1}s` }} // Stagger based on index
@@ -65,17 +65,17 @@ function EducationTimelineItem({ edu, index }: EducationTimelineItemProps) {
 export function EducationSection() {
   const [sectionRef, isSectionVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.1, triggerOnce: true });
   const [headerRef, isHeaderVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.5, triggerOnce: true });
-  
+
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="education" 
+      id="education"
       className="py-16 md:py-24 bg-background"
     >
       <div className="container mx-auto max-w-screen-lg px-4">
-        <header 
+        <header
           ref={headerRef}
-          className={`mb-16 text-center transition-all duration-500 ease-out ${ // Increased mb for timeline spacing
+          className={`mb-16 text-center transition-all duration-700 ease-out ${ // Increased mb for timeline spacing
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
@@ -98,4 +98,3 @@ export function EducationSection() {
     </section>
   );
 }
-

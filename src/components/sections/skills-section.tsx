@@ -64,15 +64,15 @@ export function SkillsSection() {
   const softSkills = skillsData.filter(s => s.category === 'Soft');
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="skills" 
+      id="skills"
       className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
     >
       <div className="container mx-auto max-w-screen-lg px-4">
-        <header 
+        <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-500 ease-out ${
+          className={`mb-12 text-center transition-all duration-700 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
@@ -84,11 +84,11 @@ export function SkillsSection() {
             Constellations of My Expertise
           </p>
         </header>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
             ref={techCardRef}
-            className={`transition-all duration-500 ease-out ${
+            className={`transition-all duration-700 ease-out ${
               isTechCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{ transitionDelay: isTechCardVisible ? '0.1s' : '0s' }}
@@ -101,16 +101,16 @@ export function SkillsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {technicalSkills.map((skill, index) => (
+                {technicalSkills.map((skill) => (
                   <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
                 ))}
               </CardContent>
             </Card>
           </div>
-          
+
           <div
             ref={softCardRef}
-            className={`transition-all duration-500 ease-out ${
+            className={`transition-all duration-700 ease-out ${
               isSoftCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
             style={{ transitionDelay: isSoftCardVisible ? '0.15s' : '0s' }}
@@ -123,7 +123,7 @@ export function SkillsSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {softSkills.map((skill, index) => (
+                {softSkills.map((skill) => (
                   <SkillItem key={skill.name} skill={skill} isVisible={isSoftCardVisible} />
                 ))}
               </CardContent>
@@ -134,4 +134,3 @@ export function SkillsSection() {
     </section>
   );
 }
-
