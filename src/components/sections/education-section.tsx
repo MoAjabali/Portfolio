@@ -33,10 +33,10 @@ function EducationTimelineItem({ edu, index }: EducationTimelineItemProps) {
   return (
     <div 
       ref={itemRef}
-      className={`mb-12 relative flex items-start transition-all duration-700 ease-out ${
+      className={`mb-12 relative flex items-start transition-all duration-500 ease-out ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10' // Slide from left
       }`}
-      style={{ transitionDelay: `${index * 0.15}s` }} // Stagger based on index
+      style={{ transitionDelay: `${index * 0.1}s` }} // Stagger based on index
     >
       <div className="z-10 flex-shrink-0 mt-1 w-12 h-12 rounded-full bg-background flex items-center justify-center shadow-lg border-2 border-primary/60">
         {React.cloneElement(edu.icon as React.ReactElement, { className: "h-6 w-6 text-primary" })}
@@ -75,10 +75,10 @@ export function EducationSection() {
       <div className="container mx-auto max-w-screen-lg px-4">
         <header 
           ref={headerRef}
-          className={`mb-16 text-center transition-all duration-700 ease-out ${ // Increased mb for timeline spacing
+          className={`mb-16 text-center transition-all duration-500 ease-out ${ // Increased mb for timeline spacing
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+          style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             My Academic Journey
@@ -98,3 +98,4 @@ export function EducationSection() {
     </section>
   );
 }
+

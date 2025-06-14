@@ -34,7 +34,8 @@ function SkillItem({ skill, isVisible }: SkillItemProps) {
 
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => setProgress(skill.level), 500);
+      // Start animation slightly after the card becomes visible for better effect
+      const timer = setTimeout(() => setProgress(skill.level), 200); // 200ms delay
       return () => clearTimeout(timer);
     }
   }, [skill.level, isVisible]);
@@ -48,7 +49,7 @@ function SkillItem({ skill, isVisible }: SkillItemProps) {
         </span>
         <span>{skill.level}%</span>
       </div>
-      <Progress value={progress} className="h-2 [&>div]:bg-primary" aria-label={`${skill.name} proficiency ${skill.level}%`} />
+      <Progress value={progress} className="h-2 [&>div]:bg-primary transition-all duration-500 ease-out" aria-label={`${skill.name} proficiency ${skill.level}%`} />
     </div>
   );
 }
@@ -71,10 +72,10 @@ export function SkillsSection() {
       <div className="container mx-auto max-w-screen-lg px-4">
         <header 
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
+          className={`mb-12 text-center transition-all duration-500 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+          style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             My Skill Galaxy
@@ -87,10 +88,10 @@ export function SkillsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
             ref={techCardRef}
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-500 ease-out ${
               isTechCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: isTechCardVisible ? '0.2s' : '0s' }}
+            style={{ transitionDelay: isTechCardVisible ? '0.1s' : '0s' }}
           >
             <Card className="bg-card/80 shadow-xl">
               <CardHeader>
@@ -109,10 +110,10 @@ export function SkillsSection() {
           
           <div
             ref={softCardRef}
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-500 ease-out ${
               isSoftCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: isSoftCardVisible ? '0.3s' : '0s' }}
+            style={{ transitionDelay: isSoftCardVisible ? '0.15s' : '0s' }}
           >
             <Card className="bg-card/80 shadow-xl">
               <CardHeader>
@@ -133,3 +134,4 @@ export function SkillsSection() {
     </section>
   );
 }
+

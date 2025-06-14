@@ -65,10 +65,10 @@ export function ContactSection() {
       <div className="container mx-auto max-w-screen-lg px-4">
         <header 
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
+          className={`mb-12 text-center transition-all duration-500 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+          style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             Connect With Me
@@ -81,10 +81,10 @@ export function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
           <div
             ref={formCardRef}
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-500 ease-out ${
               isFormCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: isFormCardVisible ? '0.2s' : '0s' }}
+            style={{ transitionDelay: isFormCardVisible ? '0.1s' : '0s' }}
           >
             <Card className="bg-card/80 shadow-xl">
               <CardHeader>
@@ -145,10 +145,10 @@ export function ContactSection() {
 
           <div 
             ref={infoCardRef}
-            className={`space-y-6 transition-all duration-700 ease-out ${
+            className={`space-y-6 transition-all duration-500 ease-out ${
               isInfoCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: isInfoCardVisible ? '0.3s' : '0s' }}
+            style={{ transitionDelay: isInfoCardVisible ? '0.15s' : '0s' }}
           >
             <Card className="bg-card/80 shadow-xl">
               <CardHeader>
@@ -192,3 +192,4 @@ export function ContactSection() {
     </section>
   );
 }
+

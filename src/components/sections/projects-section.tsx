@@ -50,10 +50,10 @@ function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className={`transition-all duration-700 ease-out transform ${
+      className={`transition-all duration-500 ease-out transform ${
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
       }`}
-      style={{ transitionDelay: `${index * 0.15}s` }}
+      style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <Card className="bg-card/80 shadow-xl flex flex-col overflow-hidden h-full hover:shadow-primary/30">
         <CardHeader className="p-0">
@@ -108,10 +108,10 @@ export function ProjectsSection() {
       <div className="container mx-auto max-w-screen-xl px-4">
         <header 
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
+          className={`mb-12 text-center transition-all duration-500 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-           style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+           style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             My Constellation of Projects
@@ -129,3 +129,4 @@ export function ProjectsSection() {
     </section>
   );
 }
+

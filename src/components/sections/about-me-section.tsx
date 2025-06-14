@@ -22,10 +22,10 @@ export function AboutMeSection() {
       <div className="container mx-auto max-w-screen-lg px-4">
         <header 
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
+          className={`mb-12 text-center transition-all duration-500 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+          style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             About Me
@@ -38,10 +38,10 @@ export function AboutMeSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           <div 
             ref={imageRef}
-            className={`md:col-span-1 flex justify-center transition-all duration-700 ease-out ${
+            className={`md:col-span-1 flex justify-center transition-all duration-500 ease-out ${
               isImageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
-            style={{ transitionDelay: isImageVisible ? '0.3s' : '0s' }}
+            style={{ transitionDelay: isImageVisible ? '0.1s' : '0s' }}
           >
             <Image
               src="https://placehold.co/400x400.png"
@@ -56,10 +56,10 @@ export function AboutMeSection() {
           <div className="md:col-span-2 space-y-6">
             <div
               ref={card1Ref}
-              className={`transition-all duration-700 ease-out ${
+              className={`transition-all duration-500 ease-out ${
                 isCard1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={{ transitionDelay: isCard1Visible ? '0.4s' : '0s' }}
+              style={{ transitionDelay: isCard1Visible ? '0.15s' : '0s' }}
             >
               <Card className="bg-card/80 shadow-xl">
                 <CardHeader>
@@ -82,10 +82,10 @@ export function AboutMeSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div
                 ref={card2Ref}
-                className={`transition-all duration-700 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isCard2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ transitionDelay: isCard2Visible ? '0.5s' : '0s' }}
+                style={{ transitionDelay: isCard2Visible ? '0.2s' : '0s' }}
               >
                 <Card className="bg-card/80 shadow-xl">
                   <CardHeader>
@@ -102,10 +102,10 @@ export function AboutMeSection() {
               </div>
               <div
                 ref={card3Ref}
-                className={`transition-all duration-700 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isCard3Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ transitionDelay: isCard3Visible ? '0.6s' : '0s' }}
+                style={{ transitionDelay: isCard3Visible ? '0.25s' : '0s' }}
               >
                 <Card className="bg-card/80 shadow-xl">
                   <CardHeader>
@@ -126,3 +126,4 @@ export function AboutMeSection() {
     </section>
   );
 }
+

@@ -23,37 +23,37 @@ export function HeroSection() {
       <div className="container mx-auto max-w-screen-md px-4 text-center">
         <h1 
           ref={h1Ref}
-          className={`font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl transition-all duration-700 ease-out ${
+          className={`font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl transition-all duration-500 ease-out ${
             isH1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isH1Visible ? '0.2s' : '0s' }}
+          style={{ transitionDelay: isH1Visible ? '0.1s' : '0s' }}
         >
           Welcome to My Universe
         </h1>
         <p 
           ref={p1Ref}
-          className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
+          className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-500 ease-out ${
             isP1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isP1Visible ? '0.4s' : '0s' }}
+          style={{ transitionDelay: isP1Visible ? '0.15s' : '0s' }}
         >
           I&apos;m [Your Name], a passionate learner and creator. Explore my journey, skills, and projects as we navigate the cosmos of technology together.
         </p>
         <p 
           ref={p2Ref}
-          className={`mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg transition-all duration-700 ease-out ${
+          className={`mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg transition-all duration-500 ease-out ${
             isP2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isP2Visible ? '0.6s' : '0s' }}
+          style={{ transitionDelay: isP2Visible ? '0.2s' : '0s' }}
         >
           Let&apos;s make dreams a reality.
         </p>
         <div 
           ref={buttonsRef}
-          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 ease-out ${
+          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-500 ease-out ${
             isButtonsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
-          style={{ transitionDelay: isButtonsVisible ? '0.8s' : '0s' }}
+          style={{ transitionDelay: isButtonsVisible ? '0.25s' : '0s' }}
         >
           <Button asChild size="lg" className="font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300">
             <Link href="#projects">View My Work</Link>
@@ -65,8 +65,8 @@ export function HeroSection() {
       </div>
       <div 
         ref={scrollIconRef}
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-700 ease-out ${isScrollIconVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`}
-        style={{ transitionDelay: isScrollIconVisible ? '1s' : '0s' }}
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-500 ease-out ${isScrollIconVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`}
+        style={{ transitionDelay: isScrollIconVisible ? '0.3s' : '0s' }}
       >
         <Link href="#about" aria-label="Scroll to About Me section">
           <MoveDown className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
@@ -75,3 +75,4 @@ export function HeroSection() {
     </section>
   );
 }
+
