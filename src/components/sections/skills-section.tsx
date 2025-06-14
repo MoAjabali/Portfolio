@@ -1,9 +1,11 @@
+
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Cpu, Lightbulb, Code2, Users, Star } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface Skill {
   name: string;
@@ -24,19 +26,21 @@ const skillsData: Skill[] = [
 
 interface SkillItemProps {
   skill: Skill;
-  delay: number;
+  isVisible: boolean; // Pass isVisible from parent for progress animation
 }
 
-function SkillItem({ skill, delay }: SkillItemProps) {
+function SkillItem({ skill, isVisible }: SkillItemProps) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setProgress(skill.level), 500 + delay * 100); // Increased base delay for progress animation
-    return () => clearTimeout(timer);
-  }, [skill.level, delay]);
+    if (isVisible) {
+      const timer = setTimeout(() => setProgress(skill.level), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [skill.level, isVisible]);
 
   return (
-    <div className="space-y-1 animate-slide-up" style={{animationDelay: `${0.4 + delay * 0.07}s`}}>
+    <div className="space-y-1">
       <div className="flex items-center justify-between text-sm font-medium text-muted-foreground">
         <span className="flex items-center">
           {React.cloneElement(skill.icon as React.ReactElement, { className: "mr-2 h-5 w-5 text-primary" })}
@@ -50,49 +54,80 @@ function SkillItem({ skill, delay }: SkillItemProps) {
 }
 
 export function SkillsSection() {
+  const [sectionRef, isSectionVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+  const [headerRef, isHeaderVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.5, triggerOnce: true });
+  const [techCardRef, isTechCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [softCardRef, isSoftCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+
   const technicalSkills = skillsData.filter(s => s.category === 'Technical');
   const softSkills = skillsData.filter(s => s.category === 'Soft');
 
   return (
-    <section id="skills" className="py-16 md:py-24 bg-background/80 backdrop-blur-sm">
+    <section 
+      ref={sectionRef}
+      id="skills" 
+      className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
+    >
       <div className="container mx-auto max-w-screen-lg px-4">
-        <header className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up" style={{animationDelay: '0.1s'}}>
+        <header 
+          ref={headerRef}
+          className={`mb-12 text-center transition-all duration-700 ease-out ${
+            isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isHeaderVisible ? '0.1s' : '0s' }}
+        >
+          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             My Skill Galaxy
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.2s'}}>
+          <p className="mt-4 text-lg text-muted-foreground">
             Constellations of My Expertise
           </p>
         </header>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.3s'}}>
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                <Cpu className="mr-3 h-7 w-7 text-primary" />
-                Technical Skills
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {technicalSkills.map((skill, index) => (
-                <SkillItem key={skill.name} skill={skill} delay={index} />
-              ))}
-            </CardContent>
-          </Card>
+          <div
+            ref={techCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isTechCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isTechCardVisible ? '0.2s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Cpu className="mr-3 h-7 w-7 text-primary" />
+                  Technical Skills
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {technicalSkills.map((skill, index) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
           
-          <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.4s'}}>
-            <CardHeader>
-              <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                <Lightbulb className="mr-3 h-7 w-7 text-primary" />
-                Soft Skills
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {softSkills.map((skill, index) => (
-                <SkillItem key={skill.name} skill={skill} delay={index + technicalSkills.length} /> 
-              ))}
-            </CardContent>
-          </Card>
+          <div
+            ref={softCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isSoftCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isSoftCardVisible ? '0.3s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Lightbulb className="mr-3 h-7 w-7 text-primary" />
+                  Soft Skills
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {softSkills.map((skill, index) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isSoftCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

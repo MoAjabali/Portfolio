@@ -1,21 +1,60 @@
+
+"use client";
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MoveDown } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export function HeroSection() {
+  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
+  const [h1Ref, isH1Visible] = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.5, triggerOnce: true });
+  const [p1Ref, isP1Visible] = useScrollAnimation<HTMLParagraphElement>({ threshold: 0.5, triggerOnce: true });
+  const [p2Ref, isP2Visible] = useScrollAnimation<HTMLParagraphElement>({ threshold: 0.5, triggerOnce: true });
+  const [buttonsRef, isButtonsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.5, triggerOnce: true });
+  const [scrollIconRef, isScrollIconVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
+
+
   return (
-    <section id="hero" className="relative flex min-h-[calc(100vh-4rem)] w-full items-center justify-center overflow-hidden py-20 md:py-32">
+    <section 
+      ref={sectionRef}
+      id="hero" 
+      className="relative flex min-h-[calc(100vh-4rem)] w-full items-center justify-center overflow-hidden py-20 md:py-32"
+    >
       <div className="container mx-auto max-w-screen-md px-4 text-center">
-        <h1 className="font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <h1 
+          ref={h1Ref}
+          className={`font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl transition-all duration-700 ease-out ${
+            isH1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isH1Visible ? '0.2s' : '0s' }}
+        >
           Welcome to My Universe
         </h1>
-        <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <p 
+          ref={p1Ref}
+          className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
+            isP1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isP1Visible ? '0.4s' : '0s' }}
+        >
           I&apos;m [Your Name], a passionate learner and creator. Explore my journey, skills, and projects as we navigate the cosmos of technology together.
         </p>
-        <p className="mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg animate-slide-up" style={{ animationDelay: '0.6s' }}>
+        <p 
+          ref={p2Ref}
+          className={`mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg transition-all duration-700 ease-out ${
+            isP2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isP2Visible ? '0.6s' : '0s' }}
+        >
           Let&apos;s make dreams a reality.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.8s' }}>
+        <div 
+          ref={buttonsRef}
+          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 ease-out ${
+            isButtonsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isButtonsVisible ? '0.8s' : '0s' }}
+        >
           <Button asChild size="lg" className="font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300">
             <Link href="#projects">View My Work</Link>
           </Button>
@@ -24,7 +63,11 @@ export function HeroSection() {
           </Button>
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce animate-fade-in" style={{animationDelay: '1s'}}>
+      <div 
+        ref={scrollIconRef}
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-700 ease-out ${isScrollIconVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`}
+        style={{ transitionDelay: isScrollIconVisible ? '1s' : '0s' }}
+      >
         <Link href="#about" aria-label="Scroll to About Me section">
           <MoveDown className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
         </Link>
