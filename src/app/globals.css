@@ -12,85 +12,85 @@ body {
 
 @layer base {
   :root {
-    --background: 222 47% 11%; /* Dark Slate Blue */
+    --background: 230 35% 7%; /* Very Dark Purplish Blue - Deep Space */
     --foreground: 210 40% 98%; /* Almost White */
 
-    --card: 222 47% 15%; /* Slightly Lighter Slate Blue for Cards */
-    --card-foreground: 210 40% 98%; /* Almost White */
+    --card: 230 30% 12%; /* Slightly Lighter Deep Space for Cards */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 15%; /* Slightly Lighter Slate Blue for Popovers */
-    --popover-foreground: 210 40% 98%; /* Almost White */
+    --popover: 230 30% 10%; /* Darker Popover Background */
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 173 96% 40%; /* Vibrant Cyan/Teal */
-    --primary-foreground: 222 47% 11%; /* Dark Slate Blue for text on primary */
+    --primary: 270 90% 65%; /* Vibrant Cosmic Purple */
+    --primary-foreground: 270 90% 98%; /* Light text for purple primary */
 
-    --secondary: 217 33% 27%; /* Muted Blue/Grey */
-    --secondary-foreground: 210 40% 98%; /* Almost White */
+    --secondary: 220 25% 25%; /* Muted Darker Blue-Grey */
+    --secondary-foreground: 210 30% 85%; /* Lighter Grey for text on secondary */
 
-    --muted: 217 33% 20%; /* Darker Muted Blue/Grey */
-    --muted-foreground: 215 28% 60%; /* Lighter Grey for muted text */
+    --muted: 220 20% 18%; /* Even Darker Muted Blue-Grey */
+    --muted-foreground: 220 15% 55%; /* Dimmer Grey for muted text */
 
-    --accent: 173 80% 50%; /* Brighter Cyan/Teal for accents */
-    --accent-foreground: 222 47% 11%; /* Dark Slate Blue for text on accent */
+    --accent: 330 90% 60%; /* Vibrant Cosmic Pink/Magenta */
+    --accent-foreground: 330 90% 98%; /* Light text for pink accent */
 
-    --destructive: 0 72% 51%; /* Kept destructive from previous dark theme */
+    --destructive: 0 72% 51%; /* Kept destructive red */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 27%; /* Muted Blue/Grey for borders */
-    --input: 217 33% 22%; /* Dark Muted Blue/Grey for input backgrounds */
-    --ring: 173 96% 40%; /* Vibrant Cyan/Teal for focus rings */
+    --border: 230 20% 25%; /* Dark, Muted Border */
+    --input: 230 20% 15%; /* Dark Input Background */
+    --ring: 270 90% 65%; /* Ring to match new primary */
 
-    --chart-1: 173 96% 40%; /* Primary */
-    --chart-2: 199 89% 48%; /* Bright Blue */
-    --chart-3: 217 56% 60%; /* Muted Sky Blue */
-    --chart-4: 290 80% 65%; /* Purple */
-    --chart-5: 340 90% 65%; /* Pink/Magenta */
+    --chart-1: 270 90% 65%; /* New Primary - Purple */
+    --chart-2: 330 90% 60%; /* New Accent - Pink/Magenta */
+    --chart-3: 190 80% 55%; /* Bright Cyan */
+    --chart-4: 250 60% 75%; /* Lighter Purple/Lavender */
+    --chart-5: 290 70% 70%; /* Another Pink/Purple Shade */
     --radius: 0.5rem;
 
-    /* Sidebar specific colors - adjust if sidebar is used, maintaining dark theme */
-    --sidebar-background: 222 47% 9%; /* Even Darker Slate Blue */
-    --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 173 96% 40%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 20%;
+    /* Sidebar specific colors - matching new dark theme */
+    --sidebar-background: 230 35% 5%; /* Even Darker than main bg */
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 270 90% 65%; /* Match main primary */
+    --sidebar-primary-foreground: 270 90% 98%;
+    --sidebar-accent: 230 30% 20%; /* Subtle accent within sidebar */
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 25%;
-    --sidebar-ring: 173 96% 40%;
+    --sidebar-border: 230 20% 20%;
+    --sidebar-ring: 270 90% 65%; /* Match main ring */
   }
 
   .dark {
-    --background: 222 47% 11%;
+    --background: 230 35% 7%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 15%;
+    --card: 230 30% 12%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 15%;
+    --popover: 230 30% 10%;
     --popover-foreground: 210 40% 98%;
-    --primary: 173 96% 40%;
-    --primary-foreground: 222 47% 11%;
-    --secondary: 217 33% 27%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 20%;
-    --muted-foreground: 215 28% 60%;
-    --accent: 173 80% 50%;
-    --accent-foreground: 222 47% 11%;
+    --primary: 270 90% 65%;
+    --primary-foreground: 270 90% 98%;
+    --secondary: 220 25% 25%;
+    --secondary-foreground: 210 30% 85%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 55%;
+    --accent: 330 90% 60%;
+    --accent-foreground: 330 90% 98%;
     --destructive: 0 72% 51%; 
     --destructive-foreground: 0 0% 100%;
-    --border: 217 33% 27%;
-    --input: 217 33% 22%;
-    --ring: 173 96% 40%;
-    --chart-1: 173 96% 40%;
-    --chart-2: 199 89% 48%;
-    --chart-3: 217 56% 60%;
-    --chart-4: 290 80% 65%;
-    --chart-5: 340 90% 65%;
-    --sidebar-background: 222 47% 9%;
-    --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 173 96% 40%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 20%;
+    --border: 230 20% 25%;
+    --input: 230 20% 15%;
+    --ring: 270 90% 65%;
+    --chart-1: 270 90% 65%;
+    --chart-2: 330 90% 60%;
+    --chart-3: 190 80% 55%;
+    --chart-4: 250 60% 75%;
+    --chart-5: 290 70% 70%;
+    --sidebar-background: 230 35% 5%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 270 90% 65%;
+    --sidebar-primary-foreground: 270 90% 98%;
+    --sidebar-accent: 230 30% 20%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 25%;
-    --sidebar-ring: 173 96% 40%;
+    --sidebar-border: 230 20% 20%;
+    --sidebar-ring: 270 90% 65%;
   }
 }
 
