@@ -23,16 +23,20 @@ export function EducationSection() {
     <section id="education" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto max-w-screen-lg px-4">
         <header className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up">
+          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up" style={{animationDelay: '0.1s'}}>
             My Academic Journey
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.1s'}}>
+          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.2s'}}>
             Foundations of My Knowledge
           </p>
         </header>
         <div className="space-y-8">
           {educationHistory.map((edu, index) => (
-            <Card key={index} className="bg-card/80 shadow-xl overflow-hidden animate-slide-up" style={{animationDelay: `${0.2 + index * 0.1}s`}}>
+            <Card 
+              key={index} 
+              className="bg-card/80 shadow-xl overflow-hidden animate-slide-up" 
+              style={{animationDelay: `${0.3 + index * 0.15}s`}}
+            >
               <CardHeader className="flex flex-row items-start space-x-4 p-6 bg-card/50">
                 <div className="flex-shrink-0 mt-1">{edu.icon}</div>
                 <div>

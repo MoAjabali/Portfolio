@@ -7,28 +7,28 @@ export function AboutMeSection() {
     <section id="about" className="py-16 md:py-24 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto max-w-screen-lg px-4">
         <header className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up">
+          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up" style={{animationDelay: '0.1s'}}>
             About Me
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.1s'}}>
+          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.2s'}}>
             A Glimpse into My World
           </p>
         </header>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          <div className="md:col-span-1 flex justify-center animate-slide-up" style={{animationDelay: '0.2s'}}>
+          <div className="md:col-span-1 flex justify-center animate-slide-up" style={{animationDelay: '0.3s'}}>
             <Image
               src="https://placehold.co/400x400.png"
               alt="My Profile Picture"
               width={300}
               height={300}
               className="rounded-full object-cover shadow-2xl border-4 border-primary/50"
-              data-ai-hint="profile person"
+              data-ai-hint="profile professional"
             />
           </div>
           
           <div className="md:col-span-2 space-y-6">
-            <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.3s'}}>
+            <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.4s'}}>
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center">
                   <UserRound className="mr-3 h-7 w-7 text-primary" />
@@ -46,7 +46,7 @@ export function AboutMeSection() {
             </Card>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.5s'}}>
                 <CardHeader>
                   <CardTitle className="font-headline text-xl flex items-center">
                     <MapPin className="mr-2 h-6 w-6 text-primary" />
@@ -58,7 +58,7 @@ export function AboutMeSection() {
                   <p className="text-sm">Open to remote opportunities.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.5s'}}>
+              <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.6s'}}>
                 <CardHeader>
                   <CardTitle className="font-headline text-xl flex items-center">
                     <Sparkles className="mr-2 h-6 w-6 text-primary" />

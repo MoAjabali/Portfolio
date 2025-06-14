@@ -37,12 +37,11 @@ export function ContactSection() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you'd send this data to a server
     console.log(values);
     toast({
       title: "Message Sent!",
       description: "Thanks for reaching out. I'll get back to you soon!",
-      variant: "default", // or 'success' if you add a success variant
+      variant: "default",
     });
     form.reset();
   }
@@ -51,16 +50,16 @@ export function ContactSection() {
     <section id="contact" className="py-16 md:py-24 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto max-w-screen-lg px-4">
         <header className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up">
+          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up" style={{animationDelay: '0.1s'}}>
             Connect With Me
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.1s'}}>
+          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.2s'}}>
             Let&apos;s Talk About Stars, Code, or Anything In Between
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.2s'}}>
+          <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.3s'}}>
             <CardHeader>
               <CardTitle className="font-headline text-2xl flex items-center text-foreground">
                 <Send className="mr-3 h-7 w-7 text-primary" /> Send a Message
@@ -73,7 +72,7 @@ export function ContactSection() {
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up" style={{animationDelay: '0.4s'}}>
                         <FormLabel className="flex items-center text-muted-foreground"><User className="mr-2 h-4 w-4" />Full Name</FormLabel>
                         <FormControl>
                           <Input placeholder="Your Name" {...field} className="bg-input text-foreground placeholder:text-muted-foreground/70"/>
@@ -86,7 +85,7 @@ export function ContactSection() {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up" style={{animationDelay: '0.5s'}}>
                         <FormLabel className="flex items-center text-muted-foreground"><Mail className="mr-2 h-4 w-4" />Email Address</FormLabel>
                         <FormControl>
                           <Input type="email" placeholder="your.email@example.com" {...field} className="bg-input text-foreground placeholder:text-muted-foreground/70"/>
@@ -99,7 +98,7 @@ export function ContactSection() {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="animate-slide-up" style={{animationDelay: '0.6s'}}>
                         <FormLabel className="flex items-center text-muted-foreground"><MessageSquare className="mr-2 h-4 w-4" />Your Message</FormLabel>
                         <FormControl>
                           <Textarea placeholder="Tell me about your project or just say hi!" {...field} rows={5} className="bg-input text-foreground placeholder:text-muted-foreground/70"/>
@@ -108,7 +107,7 @@ export function ContactSection() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" size="lg" className="w-full font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300">
+                  <Button type="submit" size="lg" className="w-full font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300 animate-slide-up" style={{animationDelay: '0.7s'}}>
                     <Send className="mr-2 h-5 w-5" /> Send Message
                   </Button>
                 </form>
@@ -116,8 +115,8 @@ export function ContactSection() {
             </CardContent>
           </Card>
 
-          <div className="space-y-6 animate-slide-up" style={{animationDelay: '0.3s'}}>
-            <Card className="bg-card/80 shadow-xl">
+          <div className="space-y-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.5s'}}>
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center text-foreground">
                   <Mail className="mr-3 h-7 w-7 text-primary" />
@@ -133,7 +132,7 @@ export function ContactSection() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-card/80 shadow-xl">
+            <Card className="bg-card/80 shadow-xl animate-slide-up" style={{animationDelay: '0.6s'}}>
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center text-foreground">
                   <Linkedin className="mr-3 h-7 w-7 text-primary" />

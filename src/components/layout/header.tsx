@@ -12,15 +12,21 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 animate-fade-in" style={{ animationDelay: '0.1s' }}>
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center space-x-2" aria-label="Stardust Portfolio Home">
+        <Link href="/" className="flex items-center space-x-2 animate-fade-in" style={{ animationDelay: '0.3s' }} aria-label="Stardust Portfolio Home">
           <Rocket className="h-7 w-7 text-primary" />
           <span className="font-headline text-2xl font-bold text-foreground">Stardust</span>
         </Link>
-        <nav className="hidden space-x-2 md:flex">
-          {navItems.map((item) => (
-            <Button key={item.name} variant="ghost" asChild className="text-foreground hover:bg-accent hover:text-accent-foreground">
+        <nav className="hidden space-x-1 md:flex">
+          {navItems.map((item, index) => (
+            <Button 
+              key={item.name} 
+              variant="ghost" 
+              asChild 
+              className="text-foreground hover:bg-accent hover:text-accent-foreground animate-fade-in"
+              style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+            >
               <Link href={item.href}>{item.name}</Link>
             </Button>
           ))}

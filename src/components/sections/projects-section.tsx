@@ -40,16 +40,20 @@ export function ProjectsSection() {
     <section id="projects" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto max-w-screen-xl px-4">
         <header className="mb-12 text-center">
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up">
+          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl animate-slide-up" style={{animationDelay: '0.1s'}}>
             My Constellation of Projects
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.1s'}}>
+          <p className="mt-4 text-lg text-muted-foreground animate-slide-up" style={{animationDelay: '0.2s'}}>
             Creations That Shine
           </p>
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={project.title} className="bg-card/80 shadow-xl flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/30 hover:scale-[1.02] animate-slide-up" style={{animationDelay: `${0.2 + index * 0.1}s`}}>
+            <Card 
+              key={project.title} 
+              className="bg-card/80 shadow-xl flex flex-col overflow-hidden transition-all duration-300 hover:shadow-primary/30 hover:scale-[1.02] animate-slide-up" 
+              style={{animationDelay: `${0.3 + index * 0.15}s`}}
+            >
               <CardHeader className="p-0">
                 <Image
                   src={project.imageUrl}
