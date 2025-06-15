@@ -8,6 +8,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 export function HeroSection() {
   const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
   const [h1Ref, isH1Visible] = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.5, triggerOnce: true });
+  const [spanRef, isSpanVisible] = useScrollAnimation<HTMLSpanElement>({ threshold: 0.5, triggerOnce: true });
   const [p1Ref, isP1Visible] = useScrollAnimation<HTMLParagraphElement>({ threshold: 0.5, triggerOnce: true });
   const [p2Ref, isP2Visible] = useScrollAnimation<HTMLParagraphElement>({ threshold: 0.5, triggerOnce: true });
   const [buttonsRef, isButtonsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.5, triggerOnce: true });
@@ -30,7 +31,15 @@ export function HeroSection() {
         >
           Welcome Among the Stars
         </h1>
-        <span className='text-lg text-muted-foreground'>Dream Build Launch</span>
+        <p
+          ref={p1Ref}
+          className={`text-lg text-muted-foreground max-w-xl mx-auto text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
+            isP1Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          style={{ transitionDelay: isP1Visible ? '0.15s' : '0s' }}
+        >
+          Dream Build Launch
+        </p>
         <p
           ref={p1Ref}
           className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
@@ -66,7 +75,7 @@ export function HeroSection() {
       </div>
       <div
         ref={scrollIconRef}
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-opacity duration-700 ease-out ${isScrollIconVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`}
+        className={`absolute bottom-6 left-1/2 -ml-4 transition-opacity duration-700 ease-out ${isScrollIconVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`}
         style={{ transitionDelay: isScrollIconVisible ? '0.3s' : '0s' }}
       >
         <Link href="#about" aria-label="Scroll to About Me section">

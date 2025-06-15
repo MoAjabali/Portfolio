@@ -85,8 +85,8 @@ export function SkillsSection() {
   const [backendCardRef, isBackendCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [frontendCardRef, isFrontendCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [frameworkCardRef, isFrameworkCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
-  const [aiCardRef, isAiCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [techCardRef, isTechCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [aiCardRef, isAiCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [softCardRef, isSoftCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
   const technicalSkills = skillsData.filter(s => s.category === 'Technical');
@@ -136,7 +136,7 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {backendSkills.map((skill) => (
-                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                  <SkillItem key={skill.name} skill={skill} isVisible={isBackendCardVisible} />
                 ))}
               </CardContent>
             </Card>
@@ -158,7 +158,7 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {frontendSkills.map((skill) => (
-                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                  <SkillItem key={skill.name} skill={skill} isVisible={isFrontendCardVisible} />
                 ))}
               </CardContent>
             </Card>
@@ -180,7 +180,7 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {frameworkSkills.map((skill) => (
-                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                  <SkillItem key={skill.name} skill={skill} isVisible={isFrameworkCardVisible} />
                 ))}
               </CardContent>
             </Card>
@@ -224,7 +224,7 @@ export function SkillsSection() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {aiSkills.map((skill) => (
-                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                  <SkillItem key={skill.name} skill={skill} isVisible={isAiCardVisible} />
                 ))}
               </CardContent>
             </Card>
