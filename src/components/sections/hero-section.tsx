@@ -28,8 +28,9 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isH1Visible ? '0.1s' : '0s' }}
         >
-          Welcome to My Universe
+          Welcome Among the Stars
         </h1>
+        <span className='text-lg text-muted-foreground'>Dream Build Launch</span>
         <p
           ref={p1Ref}
           className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
@@ -37,7 +38,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP1Visible ? '0.15s' : '0s' }}
         >
-          I&apos;m [Your Name], a passionate learner and creator. Explore my journey, skills, and projects as we navigate the cosmos of technology together.
+          I&apos;m Mohammed Al-Jabali, a passionate full-stack developer and creator, with a fast learning ability snd deep enthusiasm for the latest advancement in technology. 
         </p>
         <p
           ref={p2Ref}
@@ -46,7 +47,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP2Visible ? '0.2s' : '0s' }}
         >
-          Let&apos;s make dreams a reality.
+          Let&apos;s lunch your dream among the stars.
         </p>
         <div
           ref={buttonsRef}
@@ -58,7 +59,7 @@ export function HeroSection() {
           <Button asChild size="lg" className="font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300">
             <Link href="#projects">View My Work</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="font-semibold shadow-lg hover:shadow-accent/50 transition-shadow duration-300">
+          <Button asChild variant="outline" size="lg" className="hover:bg-primary hover:text-primary-foreground font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300">
             <Link href="#contact">Get In Touch</Link>
           </Button>
         </div>

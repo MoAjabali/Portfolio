@@ -88,7 +88,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </Link>
             </Button>
           </div>
-          <Rocket className="h-5 w-5 text-primary/70" />
+          <img src='/logo.svg' className="h-5 w-5 text-primary/70" />
         </CardFooter>
       </Card>
     </div>

@@ -4,24 +4,49 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Cpu, Lightbulb, Code2, Users, Star } from 'lucide-react';
+import { Cpu, Lightbulb, Code2, Users, Star, Database, Package, PackageOpen, Bot, BotMessageSquare, Computer, Code, Github, Presentation} from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface Skill {
   name: string;
   level: number;
   icon: React.ReactNode;
-  category: 'Technical' | 'Soft';
+  category: 'Backend' | 'Frontend' | 'Framework' | 'AI' | 'Technical' | 'Soft' ;
 }
 
 const skillsData: Skill[] = [
-  { name: 'JavaScript / TypeScript', level: 90, icon: <Code2 className="h-5 w-5" />, category: 'Technical' },
-  { name: 'React / Next.js', level: 85, icon: <Code2 className="h-5 w-5" />, category: 'Technical' },
-  { name: 'Node.js / Express', level: 75, icon: <Cpu className="h-5 w-5" />, category: 'Technical' },
-  { name: 'Python', level: 80, icon: <Code2 className="h-5 w-5" />, category: 'Technical' },
+  { name: 'Node.js / Express', level: 80, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
+  { name: 'PHP', level: 80, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
+  { name: 'Larval', level: 0, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
+  { name: 'Pl/Sql', level: 90, icon: <Database className="h-5 w-5" />, category: 'Backend' },
+  { name: 'MYSQL', level: 85, icon: <Database className="h-5 w-5" />, category: 'Backend' },
+  { name: 'Mongo atlas', level: 75, icon: <Database className="h-5 w-5" />, category: 'Backend' },
+
+  { name: 'HTML / PugJs', level: 95, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
+  { name: 'CSS / SCSS', level: 95, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
+  { name: 'JavaScript', level: 90, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
+  { name: 'React / Next.js', level: 83, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
+  { name: 'GulpJs', level: 85, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
+
+  { name: 'Bootstrap', level: 85, icon: <PackageOpen className="h-5 w-5" />, category: 'Framework' },
+  { name: 'MUI', level: 80, icon: <PackageOpen className="h-5 w-5" />, category: 'Framework' },
+  { name: 'Shadcn/ui', level: 70, icon: <PackageOpen className="h-5 w-5" />, category: 'Framework' },
+  { name: 'tailwind css', level: 75, icon: <PackageOpen className="h-5 w-5" />, category: 'Framework' },
+
+  { name: 'Git & Github', level: 88, icon: <Github className="h-5 w-5" />, category: 'Technical' },
+  { name: 'Java', level: 75 , icon: <Code className="h-5 w-5" />, category: 'Technical' },
+  { name: 'c++', level: 80, icon: <Code className="h-5 w-5" />, category: 'Technical' },
+  { name: 'Python', level: 70, icon: <Code className="h-5 w-5" />, category: 'Technical' },
+  
+  { name: 'AI Chat', level: 95, icon: <BotMessageSquare className="h-5 w-5" />, category: 'AI' },
+  { name: 'Firebase studio', level: 85, icon: <Bot className="h-5 w-5" />, category: 'AI' },
+  { name: 'Canva code', level: 85, icon: <Bot className="h-5 w-5" />, category: 'AI' },
+  { name: 'Frontier AI: frontend generator', level: 70, icon: <Bot className="h-5 w-5" />, category: 'AI' },
+
   { name: 'Problem Solving', level: 95, icon: <Lightbulb className="h-5 w-5" />, category: 'Soft' },
   { name: 'Team Collaboration', level: 90, icon: <Users className="h-5 w-5" />, category: 'Soft' },
   { name: 'Adaptability', level: 88, icon: <Star className="h-5 w-5" />, category: 'Soft' },
+  { name: 'Presentation', level: 90, icon: <Presentation className="h-5 w-5" />, category: 'Soft' },
 ];
 
 interface SkillItemProps {
@@ -57,11 +82,19 @@ function SkillItem({ skill, isVisible }: SkillItemProps) {
 export function SkillsSection() {
   const [sectionRef, isSectionVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.1, triggerOnce: true });
   const [headerRef, isHeaderVisible] = useScrollAnimation<HTMLElement>({ threshold: 0.5, triggerOnce: true });
+  const [backendCardRef, isBackendCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [frontendCardRef, isFrontendCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [frameworkCardRef, isFrameworkCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+  const [aiCardRef, isAiCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [techCardRef, isTechCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
   const [softCardRef, isSoftCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
   const technicalSkills = skillsData.filter(s => s.category === 'Technical');
   const softSkills = skillsData.filter(s => s.category === 'Soft');
+  const backendSkills = skillsData.filter(s => s.category === 'Backend');
+  const frontendSkills = skillsData.filter(s => s.category === 'Frontend');
+  const frameworkSkills = skillsData.filter(s => s.category === 'Framework');
+  const aiSkills = skillsData.filter(s => s.category === 'AI');
 
   return (
     <section
@@ -78,7 +111,7 @@ export function SkillsSection() {
           style={{ transitionDelay: isHeaderVisible ? '0.05s' : '0s' }}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
-            My Skill Galaxy
+            My Skill
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Constellations of My Expertise
@@ -86,6 +119,73 @@ export function SkillsSection() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          
+          <div
+            ref={backendCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isBackendCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isBackendCardVisible ? '0.1s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Cpu className="mr-3 h-7 w-7 text-primary" />
+                  Backend Skills
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {backendSkills.map((skill) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div
+            ref={frontendCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isFrontendCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isFrontendCardVisible ? '0.1s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Code2 className="mr-3 h-7 w-7 text-primary" />
+                  Frontend Skills
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {frontendSkills.map((skill) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div
+            ref={frameworkCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isFrameworkCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isFrameworkCardVisible ? '0.1s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Package className="mr-3 h-7 w-7 text-primary" />
+                  Frameworks & Libraries
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {frameworkSkills.map((skill) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+
           <div
             ref={techCardRef}
             className={`transition-all duration-700 ease-out ${
@@ -96,12 +196,34 @@ export function SkillsSection() {
             <Card className="bg-card/80 shadow-xl">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                  <Cpu className="mr-3 h-7 w-7 text-primary" />
+                  <Computer className="mr-3 h-7 w-7 text-primary" />
                   Technical Skills
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {technicalSkills.map((skill) => (
+                  <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div
+            ref={aiCardRef}
+            className={`transition-all duration-700 ease-out ${
+              isAiCardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: isAiCardVisible ? '0.1s' : '0s' }}
+          >
+            <Card className="bg-card/80 shadow-xl">
+              <CardHeader>
+                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
+                  <Bot className="mr-3 h-7 w-7 text-primary" />
+                  AI Tools
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {aiSkills.map((skill) => (
                   <SkillItem key={skill.name} skill={skill} isVisible={isTechCardVisible} />
                 ))}
               </CardContent>
@@ -129,6 +251,7 @@ export function SkillsSection() {
               </CardContent>
             </Card>
           </div>
+
         </div>
       </div>
     </section>

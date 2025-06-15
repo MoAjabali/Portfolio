@@ -1,6 +1,4 @@
-
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -17,9 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast"; // Updated import path
-import { Mail, Send, Linkedin, Github, Phone, User, MessageSquare } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Phone, User, MessageSquare, Twitter, Facebook } from "lucide-react";
 import Link from "next/link";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+// Add this import at the top
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -44,16 +45,41 @@ export function ContactSection() {
   const [infoCardRef, isInfoCardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // For demonstration, we'll show a success toast.
-    // In a real app, you'd handle form submission here (e.g., send to an API).
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-      variant: "default", // Ensure this variant is defined if not 'default'
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        message: values.message,
+        to_email: 'mohammed.aljablai@gmail.com',
+      };
+
+      await emailjs.send(
+        // 'service_xxxxxxx', // Replace with your EmailJS service ID
+        // 'template_xxxxxxx', // Replace with your EmailJS template ID
+        // templateParams,
+        // 'public_key_xxxxxxx' // Replace with your EmailJS public key
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+        variant: "default",
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -159,10 +185,10 @@ export function ContactSection() {
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
                 <p className="flex items-center">
-                  <Mail className="mr-2 h-5 w-5 text-primary/80" /> your.email@stardust.com
+                  <Mail className="mr-2 h-5 w-5 text-primary/80" /> Mohammed.Aljablai@gmail.com
                 </p>
                 <p className="flex items-center">
-                  <Phone className="mr-2 h-5 w-5 text-primary/80" /> +1 (555) STAR-DUST
+                  <Phone className="mr-2 h-5 w-5 text-primary/80" /> +967 770 201 264 
                 </p>
               </CardContent>
             </Card>
@@ -174,14 +200,24 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                 <Button variant="outline" asChild className="w-full justify-start hover:border-primary hover:text-primary">
-                    <Link href="#" target="_blank" rel="noopener noreferrer">
+                 <Button variant="outline" asChild className="w-full justify-start hover:bg-primary hover:text-primary-foreground">
+                    <Link href="https://www.linkedin.com/in/moajabali/" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="mr-2 h-5 w-5" /> LinkedIn Profile
                     </Link>
                  </Button>
-                 <Button variant="outline" asChild className="w-full justify-start hover:border-primary hover:text-primary">
-                    <Link href="#" target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-5 w-5" /> GitHub Repositories
+                 <Button variant="outline" asChild className="w-full justify-start hover:bg-primary hover:text-primary-foreground">
+                    <Link href="https://x.com/MoAjabali" target="_blank" rel="noopener noreferrer">
+                        <Twitter className="mr-2 h-5 w-5" /> Twitter / X
+                    </Link>
+                 </Button>
+                 <Button variant="outline" asChild className="w-full justify-start hover:bg-primary hover:text-primary-foreground">
+                    <Link href="https://github.com/MoAjabali" target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-5 w-5" /> GitHub
+                    </Link>
+                 </Button>
+                 <Button variant="outline" asChild className="w-full justify-start hover:bg-primary hover:text-primary-foreground">
+                    <Link href="https://www.facebook.com/MoAjabali" target="_blank" rel="noopener noreferrer">
+                        <Facebook className="mr-2 h-5 w-5" /> Facebook Profile
                     </Link>
                  </Button>
               </CardContent>

@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Rocket } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+// import {ReactComponent as MyLogo } from './../../app/logo.svg';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -15,22 +22,47 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 animate-fade-in" style={{ animationDelay: '0.1s' }}>
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2 animate-fade-in" style={{ animationDelay: '0.2s' }} aria-label="Stardust Portfolio Home">
-          <Rocket className="h-7 w-7 text-primary" />
-          <span className="font-headline text-2xl font-bold text-foreground">Stardust</span>
+          <img src="/logo.svg" className='h-7 w-7 text-primary' alt="logo" />
+          <span className="font-headline text-2xl font-bold text-foreground">Mohammed Al-Jabali</span>
         </Link>
+
+        {/* Desktop Navigation */}
         <nav className="hidden space-x-1 md:flex">
           {navItems.map((item) => (
             <Button
               key={item.name}
               variant="ghost"
               asChild
-              className="text-foreground hover:bg-accent hover:text-accent-foreground"
+              className="text-foreground hover:bg-primary hover:text-primary-foreground"
             >
               <Link href={item.href}>{item.name}</Link>
             </Button>
           ))}
         </nav>
-        {/* Mobile menu button can be added here if needed */}
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild >
+              <Button variant="ghost" className="hover:bg-primary hover:text-primary-foreground" size="icon">
+                <Menu className="h-5 w-5 " />
+                <span className="sr-only ">Open menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 text-sm">
+              {navItems.map((item) => (
+                <DropdownMenuItem className="hover:bg-primary hover:text-primary-foreground focus:text-primary-foreground focus:bg-primary w-full px-2 py-1.5 text-sm" key={item.name} asChild>
+                  <Link
+                    href={item.href}
+                  >
+                    
+                      {item.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </header>
   );

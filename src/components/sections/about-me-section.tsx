@@ -44,7 +44,7 @@ export function AboutMeSection() {
             style={{ transitionDelay: isImageVisible ? '0.1s' : '0s' }}
           >
             <Image
-              src="https://placehold.co/400x400.png"
+              src="/profile.png"
               alt="My Profile Picture"
               width={300}
               height={300}
@@ -70,10 +70,10 @@ export function AboutMeSection() {
                 </CardHeader>
                 <CardContent className="text-muted-foreground space-y-3">
                   <p>
-                    Hello! I&apos;m [Your Name], a dedicated and enthusiastic individual with a deep passion for [Your Field/Interests, e.g., web development, data science, creative design]. I thrive on challenges and continuously seek opportunities to learn and grow, both personally and professionally.
+                    Hello! I&apos;m Mohammed Al-Jabali, a dedicated and enthusiastic individual with a deep passion for web development. I thrive on challenges and continuously seek opportunities to learn and grow, both personally and professionally.
                   </p>
                   <p>
-                    My journey in [Your Field] is driven by a desire to create meaningful and impactful solutions. I believe in the power of technology and creativity to transform ideas into reality and make a positive difference in the world.
+                    My journey in web development is driven by a desire to create meaningful and impactful solutions. I believe that technology is the path for dreamer to reach beyond the sky.
                   </p>
                 </CardContent>
               </Card>
@@ -95,7 +95,7 @@ export function AboutMeSection() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="text-muted-foreground">
-                    <p>[Your City, Country]</p>
+                    <p>Sana&apos;a, Yemen 🇾🇪</p>
                     <p className="text-sm">Open to remote opportunities.</p>
                   </CardContent>
                 </Card>
@@ -115,7 +115,7 @@ export function AboutMeSection() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="text-muted-foreground">
-                    <p>[Interest 1], [Interest 2], Stargazing</p>
+                    <p>Technology, Graphic, Business</p>
                   </CardContent>
                 </Card>
               </div>

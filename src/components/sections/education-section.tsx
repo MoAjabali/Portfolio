@@ -7,17 +7,31 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const educationHistory = [
   {
-    institution: 'University of Cosmos',
-    degree: 'M.Sc. in Astro-informatics',
-    period: '2020 - 2022',
-    description: 'Focused on data analysis for celestial bodies and advanced algorithm design for space exploration. Thesis on "Predictive Modeling of Supernova Events".',
+    institution: 'National University',
+    degree: 'B.Sc. in Computer Science',
+    period: '2023 - 2027',
+    description: 'Focused on Programming fundamentals, problem solving, data structure, and algorithm. in Addition system analysis. Further more programming language like c++, java, assembly, and pl/sql.',
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
   },
   {
-    institution: 'Planetaria College',
-    degree: 'B.Sc. in Computer Science & Astronomy',
-    period: '2016 - 2020',
-    description: 'Dual major program combining core computer science principles with astronomical studies. Capstone project involved developing a star-charting application.',
+    institution: 'Google developer',
+    degree: 'Course. python language',
+    period: '2024',
+    description: 'The course focus in the practice side. In addition, it cover the basics of python such as loop, conditions, oop, api, and more.',
+    icon: <BookOpen className="h-8 w-8 text-primary" />,
+  },
+  {
+    institution: 'American French World Institute',
+    degree: 'TOEFL in English',
+    period: '2024 - 2025',
+    description: 'It was a practice for the real TOEFL exam. Focusing on the reading, listening, speaking, and writing. In addition, learning tricks and ways to get high degree',
+    icon: <BookOpen className="h-8 w-8 text-primary" />,
+  },
+  {
+    institution: 'American French World Institute',
+    degree: 'High deplume in English',
+    period: '2023 - 2024',
+    description: 'They touch us the book American file English. Focusing in vocabularies, and Grammars. with tech us soft skills like presentation, and communication',
     icon: <BookOpen className="h-8 w-8 text-primary" />,
   },
 ];
