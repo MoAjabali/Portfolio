@@ -16,8 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Stardust Portfolio',
-  description: 'Portfolio website showcasing skills, projects, and journey.',
+  title: 'Mohammed Al-jabali Portfolio',
+  description: 'This is Mohammed Al-jabali (MoAjabali) Portfolio website showcasing his skills, projects, and journey. In addition, who is Mohammed Al-jabali?',
 };
 
 export default function RootLayout({
