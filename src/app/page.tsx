@@ -6,6 +6,8 @@ import { EducationSection } from '@/components/sections/education-section';
 import { SkillsSection } from '@/components/sections/skills-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { ContactSection } from '@/components/sections/contact-section';
+import { SelfLearningSection } from '@/components/sections/self-learning-section';
+import { ServicesSection } from '@/components/sections/services-section';
 
 export default function Home() {
   return (
@@ -15,8 +17,10 @@ export default function Home() {
         <HeroSection />
         <AboutMeSection />
         <EducationSection />
+        <SelfLearningSection/>
         <SkillsSection />
         <ProjectsSection />
+        <ServicesSection />
         <ContactSection />
       </main>
       <Footer />
