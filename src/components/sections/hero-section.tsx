@@ -47,7 +47,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP1Visible ? '0.15s' : '0s' }}
         >
-          I&apos;m Mohammed Al-Jabali, a passionate full-stack developer and creator, with a fast learning ability snd deep enthusiasm for the latest advancement in technology. 
+          I&apos;m Yemeni Full-Stack Architect Crafting Scalable Web Dreams, a passionate full-stack developer and creator, with a fast learning ability and deep enthusiasm for the latest advancement in technology. 
         </p>
         <p
           ref={p2Ref}
@@ -56,7 +56,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP2Visible ? '0.2s' : '0s' }}
         >
-          Let&apos;s lunch your dream among the stars.
+          Let&apos;s launch your dream among the stars.
         </p>
         <div
           ref={buttonsRef}

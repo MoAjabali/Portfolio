@@ -16,11 +16,11 @@ interface Skill {
 
 const skillsData: Skill[] = [
   { name: 'Node.js / Express', level: 80, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
-  { name: 'PHP', level: 80, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
-  { name: 'Larval', level: 0, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
+  { name: 'PHP', level: 90, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
+  { name: 'Larval', level: 85, icon: <Cpu className="h-5 w-5" />, category: 'Backend' },
   { name: 'Pl/Sql', level: 90, icon: <Database className="h-5 w-5" />, category: 'Backend' },
   { name: 'MYSQL', level: 85, icon: <Database className="h-5 w-5" />, category: 'Backend' },
-  { name: 'Mongo atlas', level: 75, icon: <Database className="h-5 w-5" />, category: 'Backend' },
+  { name: 'MongoDB', level: 75, icon: <Database className="h-5 w-5" />, category: 'Backend' },
 
   { name: 'HTML / PugJs', level: 95, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
   { name: 'CSS / SCSS', level: 95, icon: <Code2 className="h-5 w-5" />, category: 'Frontend' },
@@ -40,7 +40,7 @@ const skillsData: Skill[] = [
   
   { name: 'AI Chat', level: 95, icon: <BotMessageSquare className="h-5 w-5" />, category: 'AI' },
   { name: 'Firebase studio', level: 85, icon: <Bot className="h-5 w-5" />, category: 'AI' },
-  { name: 'Canva code', level: 85, icon: <Bot className="h-5 w-5" />, category: 'AI' },
+  { name: 'Canva code', level: 65, icon: <Bot className="h-5 w-5" />, category: 'AI' },
   { name: 'Frontier AI: frontend generator', level: 70, icon: <Bot className="h-5 w-5" />, category: 'AI' },
 
   { name: 'Problem Solving', level: 95, icon: <Lightbulb className="h-5 w-5" />, category: 'Soft' },

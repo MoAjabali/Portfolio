@@ -39,7 +39,6 @@ export function Header() {
             </Button>
           ))}
         </nav>
-
         {/* Mobile Navigation */}
         <div className="md:hidden">
           <DropdownMenu>
@@ -55,14 +54,15 @@ export function Header() {
                   <Link
                     href={item.href}
                   >
-                    
                       {item.name}
                   </Link>
                 </DropdownMenuItem>
               ))}
+              
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+        
       </div>
     </header>
   );
