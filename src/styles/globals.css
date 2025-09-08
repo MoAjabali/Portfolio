@@ -1,10 +1,110 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 230 35% 7%; /* Very Dark Purplish Blue - Deep Space */
+  --foreground: 210 40% 98%; /* Almost White */
+
+  --card: 230 30% 12%; /* Slightly Lighter Deep Space for Cards */
+  --card-foreground: 210 40% 98%;
+
+  --popover: 230 30% 10%; /* Darker Popover Background */
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 270 90% 65%; /* Vibrant Cosmic Purple */
+  --primary-foreground: 270 90% 98%; /* Light text for purple primary */
+
+  --secondary: 220 25% 25%; /* Muted Darker Blue-Grey */
+  --secondary-foreground: 210 30% 85%; /* Lighter Grey for text on secondary */
+
+  --muted: 220 20% 18%; /* Even Darker Muted Blue-Grey */
+  --muted-foreground: 220 15% 55%; /* Dimmer Grey for muted text */
+
+  --accent: 330 90% 60%; /* Vibrant Cosmic Pink/Magenta */
+  --accent-foreground: 330 90% 98%; /* Light text for pink accent */
+
+  --destructive: 0 72% 51%; /* Kept destructive red */
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 230 20% 25%; /* Dark, Muted Border */
+  --input: 230 20% 15%; /* Dark Input Background */
+  --ring: 270 90% 65%; /* Ring to match new primary */
+
+  --chart-1: 270 90% 65%; /* New Primary - Purple */
+  --chart-2: 330 90% 60%; /* New Accent - Pink/Magenta */
+  --chart-3: 190 80% 55%; /* Bright Cyan */
+  --chart-4: 250 60% 75%; /* Lighter Purple/Lavender */
+  --chart-5: 290 70% 70%; /* Another Pink/Purple Shade */
+  --radius: 0.5rem;
+
+  /* Sidebar specific colors - matching new dark theme */
+  --sidebar-background: 230 35% 5%; /* Even Darker than main bg */
+  --sidebar-foreground: 210 40% 95%;
+  --sidebar-primary: 270 90% 65%; /* Match main primary */
+  --sidebar-primary-foreground: 270 90% 98%;
+  --sidebar-accent: 230 30% 20%; /* Subtle accent within sidebar */
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 230 20% 20%;
+  --sidebar-ring: 270 90% 65%; /* Match main ring */
 }
 
+.dark {
+  --background: 230 35% 7%;
+  --foreground: 210 40% 98%;
+  --card: 230 30% 12%;
+  --card-foreground: 210 40% 98%;
+  --popover: 230 30% 10%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 270 90% 65%;
+  --primary-foreground: 270 90% 98%;
+  --secondary: 220 25% 25%;
+  --secondary-foreground: 210 30% 85%;
+  --muted: 220 20% 18%;
+  --muted-foreground: 220 15% 55%;
+  --accent: 330 90% 60%;
+  --accent-foreground: 330 90% 98%;
+  --destructive: 0 72% 51%; 
+  --destructive-foreground: 0 0% 100%;
+  --border: 230 20% 25%;
+  --input: 230 20% 15%;
+  --ring: 270 90% 65%;
+  --chart-1: 270 90% 65%;
+  --chart-2: 330 90% 60%;
+  --chart-3: 190 80% 55%;
+  --chart-4: 250 60% 75%;
+  --chart-5: 290 70% 70%;
+  --sidebar-background: 230 35% 5%;
+  --sidebar-foreground: 210 40% 95%;
+  --sidebar-primary: 270 90% 65%;
+  --sidebar-primary-foreground: 270 90% 98%;
+  --sidebar-accent: 230 30% 20%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 230 20% 20%;
+  --sidebar-ring: 270 90% 65%;
+}
+
+/* تنسيقات عامة */
+body {
+  /* font-family: var(--font-inter), Arial, Helvetica, sans-serif; */
+  /* background-color: hsl(var(--background)); */
+  color: hsl(var(--foreground));
+  background: var(--background);
+  color: var(--foreground); 
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  /* كرر نفس الشيء لكل الألوان */
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -18,9 +118,8 @@
     --foreground: #ededed;
   }
 }
-
-body {
+/* body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
