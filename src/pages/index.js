@@ -23,7 +23,8 @@ import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen ">
+      <div className="fixed wallpaper opacity-20 inset-0 z-[-1]" data-ai-hint="abstract particles" aria-hidden="true"></div>
       <Header />
       <main className="flex-grow">
         <HeroSection />
