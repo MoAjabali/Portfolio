@@ -15,22 +15,22 @@ const translations = {
       {
         title: "Laravel Course",
         platform: "Tarmize Academy & Mohammed Taher",
-        description: "Built full-stack applications using Laravel MVC architecture and Blade templating. Developed secure APIs with JWT authentication and custom CMS for content management."
+        description: "Created full-stack web applications using Laravel's MVC architecture, Blade templating engine, and Eloquent ORM for seamless database operations. Developed secure API endpoints with JWT authentication and built a custom CMS for blog content management."
       },
       {
         title: "Node.js Course",
         platform: "Tarmize Academy & FreeCodeCamp",
-        description: "Built scalable server-side applications using Node.js and Express.js with RESTful API development. Integrated MongoDB and implemented user authentication systems using EJS templating."
+        description: "Built scalable server-side applications using Node.js and Express.js, focusing on RESTful API development. Integrated MongoDB for NoSQL database management and implemented user authentication systems. Utilized EJS for server-side templating while adhering to MVC design principles"
       },
       {
         title: "Elzero Web School - Back-End Development",
         platform: "Elzero Web School",
-        description: "Mastered core PHP programming including OOP principles, session/cookie management, and MySQL database design. Implemented MVC pattern by developing a fully functional book management system with CRUD operations."
+        description: "Mastered core PHP programming, including object-oriented principles (OOP), session/cookie management, and MySQL database design. Implemented the MVC architectural pattern by developing a fully functional book management system with complete CRUD (Create, Read, Update, Delete) operations."
       },
       {
         title: "React Course",
         platform: "Tarmize Academy",
-        description: "Developed dynamic UIs with React.js using component-based architecture. Achieved 30% faster rendering with React hooks and 100% responsive designs using Material-UI."
+        description: "Developed dynamic user interfaces with React.js, leveraging component-based architecture for reusable and maintainable code. Styled applications using Material-UI (MUI) framework, achieving 30% faster rendering performance with React hooks and ensuring 100% responsive design across all components."
       },
       {
         title: "Elzero Web School - Front-End Development",
@@ -47,27 +47,27 @@ const translations = {
       {
         title: "دورة لارافيل",
         platform: "أكاديمية ترميز & محمد طاهر",
-        description: "بنيت تطبيقات متكاملة باستخدام إطار Laravel وبنية MVC مع قوالب Blade. طورت واجهات برمجة آمنة باستخدام JWT ونظام إدارة محتوى مخصص."
+        description: "أنشأت تطبيقات ويب كاملة باستخدام إطار عمل Laravel وهيكلية MVC، مع استخدام محرك Blade للقوالب وEloquent ORM للتعامل مع قواعد البيانات. طورت نقاط نهاية API آمنة باستخدام مصادقة JWT، وقمت ببناء نظام إدارة محتوى (CMS) مخصص للعقارات.."
       },
       {
         title: "دورة Node.js",
         platform: "أكاديمية ترميز & FreeCodeCamp",
-        description: "بنيت تطبيقات جانب الخادم القابلة للتوسع باستخدام Node.js وExpress.js مع تطوير RESTful API. دمجت MongoDB ونفذت أنظمة مصادقة المستخدم باستخدام قوالب EJS."
+        description: "صممت تطبيقات تعمل بجهة الخادم باستخدام Node.js وExpress.js، مع التركيز على تطوير واجهات برمجية (RESTful APIs). قمت بدمج MongoDB لإدارة قواعد البيانات NoSQL وتنفيذ أنظمة مصادقة المستخدمين. استخدمت محرك EJS للقوالب من جانب الخادم مع الالتزام بمبادئ تصميم MVC."
       },
       {
-        title: "مدرسة الزيرو الويب - تطوير الواجهة الخلفية",
-        platform: "مدرسة الزيرو الويب",
-        description: "أتقنت أساسيات برمجة PHP بما في ذلك مبادئ OOP، إدارة الجلسات/الكوكيز، وتصميم قواعد بيانات MySQL. نفذت نمط MVC من خلال تطوير نظام إدارة كتب متكامل مع عمليات CRUD."
+        title: "Elzero Web School - تطوير الـBackend",
+        platform: "Elzero Web School",
+        description: "أتقنت أساسيات البرمجة بلغة PHP، بما في ذلك البرمجة كائنية التوجه (OOP) وإدارة الجلسات والكوكيز، بالإضافة إلى تصميم قواعد بيانات MySQL. نفذت نمط MVC من خلال تطوير نظام متكامل لإدارة الكتب الإلكترونية يدعم جميع عمليات CRUD (إنشاء، قراءة، تحديث، حذف)."
       },
       {
         title: "دورة React",
         platform: "أكاديمية ترميز",
-        description: "طورت واجهات مستخدم ديناميكية باستخدام React.js مع بنية مكونات. حققت أداء أسرع بنسبة 30% باستخدام React hooks وتصاميم متجاوبة 100% باستخدام Material-UI."
+        description: "طورت واجهات مستخدم ديناميكية باستخدام React.js، مستفيدًا من المكونات القابلة لإعادة الاستخدام. صممت التطبيقات بإطار عمل Material-UI (MUI)، وحققت تحسنًا بنسبة 30% في سرعة التحميل باستخدام React hooks، مع ضمان تصميم متجاوب بالكامل لجميع العناصر."
       },
       {
-        title: "مدرسة الزيرو الويب - تطوير الواجهة الأمامية",
-        platform: "مدرسة الزيرو الويب",
-        description: "أكملت مسار مكثف في تطوير الواجهة الأمامية يغطي HTML5، CSS3، وجافاسكريبت الحديث (ES6+)، مع Git/GitHub للتحكم في الإصدارات والتعاون الفريقي. حسنت كفاءة سير العمل باستخدام Pug.js للقوالب، SCSS للتصميم المتقدم، وGulp.js لأتمتة المهام. طبقت هذه المهارات من خلال بناء أربعة مشاريع جاهزة للإنتاج، بما في ذلك صفحة هبوط ولوحة تحكم متجاوبة."
+        title: "Elzero Web School - تطوير الـFrontend",
+        platform: "Elzero Web School",
+        description: "أكملت مسارًا مكثفًا في تطوير الواجهات الأمامية يشمل HTML5 وCSS3 وجافاسكريبت (ES6+)، بالإضافة إلى إدارة المشاريع باستخدام Git/GitHub للعمل الجماعي. استخدمت أدوات متقدمة مثل Pug.js لتنظيم القوالب، وSCSS للتصميم المتقدم، وGulp.js لأتمتة المهام. طبقت هذه المهارات في بناء أربعة مشاريع جاهزة للنشر، منها صفحة هبوط ولوحة تحكم إدارية متجاوبة."
       }
     ]
   }

@@ -102,8 +102,8 @@ const translations = {
     ]
   },
   ar: {
-    title: "مجموعة مشاريعي",
-    subtitle: "إبداعات تتألق",
+    title: "مشاريعي",
+    subtitle: "إبداعاتي",
     categories: [
       { id: "all", label: "جميع المشاريع" },
       { id: "frontend", label: "واجهة أمامية" },
@@ -201,7 +201,7 @@ function ProjectCard({ project, index, language }) {
       }`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
-      <Card className="bg-card/80 shadow-xl flex flex-col overflow-hidden h-full hover:shadow-primary/30">
+      <Card className="flex flex-col h-full overflow-hidden shadow-xl bg-card/80 hover:shadow-primary/30">
         <CardHeader className="p-0">
           <video
             src={project.videoUrl}
@@ -209,17 +209,17 @@ function ProjectCard({ project, index, language }) {
             loop
             muted
             playsInline
-            className="w-full h-auto rounded-lg transition-transform hover:scale-105 duration-300 object-cover"
+            className="object-cover w-full h-auto transition-transform duration-300 rounded-lg hover:scale-105"
           >
-            <Video className="h-5 w-5 text-primary/70" />
+            <Video className="w-5 h-5 text-primary/70" />
             {project.title} video
           </video>
         </CardHeader>
-        <CardContent className="p-6 flex-grow">
-          <CardTitle className="font-headline text-2xl text-foreground mb-2">
+        <CardContent className="flex-grow p-6">
+          <CardTitle className="mb-2 text-2xl font-headline text-foreground">
             {project.title}
           </CardTitle>
-          <div className="mb-3 flex gap-2 flex-wrap">
+          <div className="flex flex-wrap gap-2 mb-3">
             {project.tags.map(tag => (
               <Badge
                 key={tag}
@@ -234,7 +234,7 @@ function ProjectCard({ project, index, language }) {
             {project.description}
           </CardDescription>
         </CardContent>
-        <CardFooter className="p-6 border-t border-border/50 flex justify-between items-center mt-auto">
+        <CardFooter className="flex items-center justify-between p-6 mt-auto border-t border-border/50">
           <div className="flex space-x-2">
             <Button
               variant="outline"
@@ -267,7 +267,7 @@ function ProjectCard({ project, index, language }) {
               </Link>
             </Button>
           </div>
-          <img src="/logo.svg" className="h-5 w-5 text-primary/70" />
+          <img src="/logo.svg" className="w-5 h-5 text-primary/70" />
         </CardFooter>
       </Card>
     </div>
@@ -300,7 +300,7 @@ export function ProjectsSection() {
       dir={language === "en" ? "ltr" : "rtl"}
       className="py-16 md:py-24 bg-background"
     >
-      <div className="container mx-auto max-w-screen-xl px-4">
+      <div className="container max-w-screen-xl px-4 mx-auto">
         <header
           ref={headerRef}
           className={`mb-12 text-center transition-all duration-700 ease-out ${
@@ -310,7 +310,7 @@ export function ProjectsSection() {
           }`}
           style={{ transitionDelay: isHeaderVisible ? "0.05s" : "0s" }}
         >
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
+          <h2 className="text-4xl font-bold font-headline text-foreground sm:text-5xl">
             {translations[language].title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -336,7 +336,7 @@ export function ProjectsSection() {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} language={language} />
           ))}

@@ -204,12 +204,12 @@ const translations = {
   ar: {
     title: "مهاراتي",
     subtitle: "مجرّات خبرتي",
-    backend: "مهارات الخلفية",
-    frontend: "مهارات الواجهة",
+    backend: "مهارات الـBackend",
+    frontend: "مهارات الـFrontend",
     framework: "الأُطر والمكتبات",
     technical: "مهارات تقنية",
     ai: "أدوات الذكاء الاصطناعي",
-    soft: "مهارات ناعمة"
+    soft: "مهارات أخرى"
   }
 }
 const cardsConfig = (language) => [
