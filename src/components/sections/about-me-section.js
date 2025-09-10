@@ -3,8 +3,55 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { UserRound, MapPin, Sparkles } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { useLanguage } from "@/context/LanguageContext"
+
+const translation ={
+  en: {
+    title: "About Me",
+    titleDesc:"A Glimpse into My World",
+    box1:{
+      title: "Who I Am", 
+      body1: `Hello! I'm Mohammed Al-Jabali, a dedicated and
+        enthusiastic individual with a deep passion for web
+        development. I thrive on challenges and continuously seek
+        opportunities to learn and grow, both personally and
+        professionally.`,
+        body2: `My journey in web development is driven by a desire to
+          create meaningful and impactful solutions. I believe that
+          technology is the path for dreamer to reach beyond the sky.`
+    },
+    box2:{
+      title: "Location", 
+      body1: `Sana'a, Yemen`,
+      body2: `Open to remote opportunities.`
+    },
+    box3:{
+      title: "Interests", 
+      body: `Technology, Graphic, Business`
+    },
+  },
+  ar: {
+    title: "من أنا",
+    titleDesc: "نظرة خاطفة على عالمي",
+    box1: {
+      title: "من أكون",
+      body1: `مرحبًا! أنا محمد الجبلي، مطوِّر ويب متكامل شغوف بالتعلم المستمر وتطوير حلولٍ رقميةٍ مؤثرة.`,
+      body2: `أسعى دائمًا لتحويل الأفكار إلى واقعٍ رقمي يساهم في تحسين حياة المستخدمين.`
+    },
+    box2: {
+      title: "الموقع",
+      body1: "صنعاء، اليمن",
+      body2: "متاح للعمل عن بُعد"
+    },
+    box3: {
+      title: "الاهتمامات",
+      body: "تكنولوجيا، تصميم جرافيك، أعمال"
+    }
+  }
+}
 
 export function AboutMeSection() {
+  const { language } = useLanguage();
   const [sectionRef, isSectionVisible] = useScrollAnimation({
     threshold: 0.1,
     triggerOnce: true
@@ -32,6 +79,7 @@ export function AboutMeSection() {
 
   return (
     <section
+      dir={language=="en" ? "ltr" : "rtl"}
       ref={sectionRef}
       id="about"
       className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
@@ -47,10 +95,10 @@ export function AboutMeSection() {
           style={{ transitionDelay: isHeaderVisible ? "0.05s" : "0s" }}
         >
           <h2 className="text-4xl font-bold font-headline text-foreground sm:text-5xl">
-            About Me
+            {translation[language].title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A Glimpse into My World
+            {translation[language].titleDesc}
           </p>
         </header>
 
@@ -87,22 +135,16 @@ export function AboutMeSection() {
               <Card className="shadow-xl bg-card/80 ">
                 <CardHeader>
                   <CardTitle className="flex items-center text-2xl font-headline">
-                    <UserRound className="mr-3 h-7 w-7 text-primary" />
-                    Who I Am
+                    <UserRound className={`${language=="en" ? "mr-3" : "ml-3"} h-7 w-7 text-primary`} />
+                    {translation[language].box1.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-muted-foreground">
                   <p>
-                    Hello! I&apos;m Mohammed Al-Jabali, a dedicated and
-                    enthusiastic individual with a deep passion for web
-                    development. I thrive on challenges and continuously seek
-                    opportunities to learn and grow, both personally and
-                    professionally.
+                    {translation[language].box1.body1}
                   </p>
                   <p>
-                    My journey in web development is driven by a desire to
-                    create meaningful and impactful solutions. I believe that
-                    technology is the path for dreamer to reach beyond the sky.
+                    {translation[language].box1.body2}
                   </p>
                 </CardContent>
               </Card>
@@ -121,13 +163,13 @@ export function AboutMeSection() {
                 <Card className="shadow-xl bg-card/80">
                   <CardHeader>
                     <CardTitle className="flex items-center text-xl font-headline">
-                      <MapPin className="w-6 h-6 mr-2 text-primary" />
-                      Location
+                      <MapPin className={`${language=="en" ? "mr-3" : "ml-3"} w-6 h-6 text-primary`} />
+                      {translation[language].box2.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="text-muted-foreground">
-                    <p>Sana&apos;a, Yemen 🇾🇪</p>
-                    <p className="text-sm">Open to remote opportunities.</p>
+                    <p>{translation[language].box2.body1}</p>
+                    <p className="text-sm">{translation[language].box2.body2}</p>
                   </CardContent>
                 </Card>
               </div>
@@ -143,12 +185,12 @@ export function AboutMeSection() {
                 <Card className="shadow-xl bg-card/80">
                   <CardHeader>
                     <CardTitle className="flex items-center text-xl font-headline">
-                      <Sparkles className="w-6 h-6 mr-2 text-primary" />
-                      Interests
+                      <Sparkles className={`${language=="en" ? "mr-3" : "ml-3"} w-6 h-6 text-primary`} />
+                      {translation[language].box3.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="text-muted-foreground">
-                    <p>Technology, Graphic, Business</p>
+                    <p>{translation[language].box3.body}</p>
                   </CardContent>
                 </Card>
               </div>

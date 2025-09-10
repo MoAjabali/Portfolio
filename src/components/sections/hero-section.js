@@ -3,8 +3,33 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { MoveDown } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+import { useLanguage } from "@/context/LanguageContext"
+
+const transition = {
+  en: {
+    title: "Welcome Among the Stars",
+    simpleWords: "Dream Build Launch",
+    body: `I'm Yemeni Full-Stack Architect Crafting Scalable Web Dreams, a
+          passionate full-stack developer and creator, with a fast learning
+          ability and deep enthusiasm for the latest advancement in technology.`,
+    slagone: "Let's launch your dream among the stars.",
+    myWork: "View My Work",
+    touch: "Get In Touch",
+  },
+  ar: {
+    title: "مرحبا بك بين النجوم",
+    simpleWords: "احلم ابني اطلق",
+    body: `
+    مطور يمني لتطوير مواقع ويب متكاملة وقابلة للتوسعة, مبدع وشغوف في مجال الويب, مع امتلاك مهارت التعلم الذاتي وسرعة التعلم واهتمامي العميق بأحدث التقنيات المتواجدة في مجال, يمكنني من صنع تطبيقات تنافس العمالقة
+    `,
+    slagone: "Let's launch your dream among the stars.",
+    myWork: "القي نظرة",
+    touch: "القي السلام",
+  },
+}
 
 export function HeroSection() {
+  const { language, setLanguage } = useLanguage();
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const [h1Ref, isH1Visible] = useScrollAnimation({
     threshold: 0.5,
@@ -47,7 +72,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isH1Visible ? "0.1s" : "0s" }}
         >
-          Welcome Among the Stars
+          {transition[language].title}
         </h1>
         <p
           ref={p1Ref}
@@ -58,7 +83,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP1Visible ? "0.15s" : "0s" }}
         >
-          Dream Build Launch
+          {transition[language].simpleWords}
         </p>
         <p
           ref={p1Ref}
@@ -69,9 +94,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP1Visible ? "0.15s" : "0s" }}
         >
-          I&apos;m Yemeni Full-Stack Architect Crafting Scalable Web Dreams, a
-          passionate full-stack developer and creator, with a fast learning
-          ability and deep enthusiasm for the latest advancement in technology.
+          {transition[language].body}
         </p>
         <p
           ref={p2Ref}
@@ -82,7 +105,7 @@ export function HeroSection() {
           }`}
           style={{ transitionDelay: isP2Visible ? "0.2s" : "0s" }}
         >
-          Let&apos;s launch your dream among the stars.
+          {transition[language].slagone}
         </p>
         <div
           ref={buttonsRef}
@@ -98,7 +121,7 @@ export function HeroSection() {
             size="lg"
             className="font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300"
           >
-            <Link href="#projects">View My Work</Link>
+            <Link href="#projects">{transition[language].myWork}</Link>
           </Button>
           <Button
             asChild
@@ -106,7 +129,7 @@ export function HeroSection() {
             size="lg"
             className="hover:bg-primary hover:text-primary-foreground font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300"
           >
-            <Link href="#contact">Get In Touch</Link>
+            <Link href="#contact">{transition[language].touch}</Link>
           </Button>
         </div>
       </div>

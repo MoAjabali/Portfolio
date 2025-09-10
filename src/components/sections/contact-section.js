@@ -28,6 +28,8 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+// أضف استيراد سياق اللغة
+import { useLanguage } from "@/context/LanguageContext"
 
 // Add this import at the top
 import emailjs from "@emailjs/browser"
@@ -40,7 +42,59 @@ const formSchema = z.object({
     .min(10, { message: "Message must be at least 10 characters." })
 })
 
+// إضافة ترجمات للمكون
+const translations = {
+  en: {
+    title: "Connect With Me",
+    subtitle: "Let's Talk About Stars, Code, or Anything In Between",
+    sendMessage: "Send a Message",
+    fullName: "Full Name",
+    namePlaceholder: "Your Name",
+    emailAddress: "Email Address",
+    emailPlaceholder: "your.email@example.com",
+    yourMessage: "Your Message",
+    messagePlaceholder: "Tell me about your project or just say hi!",
+    sendButton: "Send Message",
+    directContact: "Direct Contact",
+    findMeOnline: "Find Me Online",
+    linkedinProfile: "LinkedIn Profile",
+    twitterX: "Twitter / X",
+    github: "GitHub",
+    facebookProfile: "Facebook Profile",
+    // رسائل النجاح والخطأ
+    successTitle: "Message Sent Successfully!",
+    successDesc: "Thanks for reaching out. I'll get back to you soon!",
+    errorTitle: "Failed to Send Message",
+    errorDesc: "Please try again or contact me directly via email."
+  },
+  ar: {
+    title: "تواصل معي",
+    subtitle: "دعنا نتحدث عن النجوم والبرمجة أو أي شيء آخر",
+    sendMessage: "أرسل رسالة",
+    fullName: "الاسم الكامل",
+    namePlaceholder: "اسمك",
+    emailAddress: "البريد الإلكتروني",
+    emailPlaceholder: "بريدك@مثال.كوم",
+    yourMessage: "رسالتك",
+    messagePlaceholder: "أخبرني عن مشروعك أو فقط قل مرحباً!",
+    sendButton: "إرسال الرسالة",
+    directContact: "اتصال مباشر",
+    findMeOnline: "تابعني على الإنترنت",
+    linkedinProfile: "حساب لينكد إن",
+    twitterX: "تويتر / إكس",
+    github: "جيت هاب",
+    facebookProfile: "حساب فيسبوك",
+    // رسائل النجاح والخطأ
+    successTitle: "تم إرسال الرسالة بنجاح!",
+    successDesc: "شكراً للتواصل. سأرد عليك قريباً!",
+    errorTitle: "فشل في إرسال الرسالة",
+    errorDesc: "يرجى المحاولة مرة أخرى أو التواصل معي مباشرة عبر البريد الإلكتروني."
+  }
+}
+
 export function ContactSection() {
+  // استخدام سياق اللغة
+  const { language } = useLanguage()
   const { toast } = useToast()
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -85,8 +139,8 @@ export function ContactSection() {
       )
 
       toast({
-        title: "Message Sent Successfully!",
-        description: "Thanks for reaching out. I'll get back to you soon!",
+        title: translations[language].successTitle,
+        description: translations[language].successDesc,
         variant: "default"
       })
 
@@ -94,8 +148,8 @@ export function ContactSection() {
     } catch (error) {
       console.error("Error sending email:", error)
       toast({
-        title: "Failed to Send Message",
-        description: "Please try again or contact me directly via email.",
+        title: translations[language].errorTitle,
+        description: translations[language].errorDesc,
         variant: "destructive"
       })
     }
@@ -105,9 +159,10 @@ export function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
+      dir={language === "en" ? "ltr" : "rtl"}
       className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
     >
-      <div className="container mx-auto max-w-screen-lg px-4">
+      <div className="container max-w-screen-lg px-4 mx-auto">
         <header
           ref={headerRef}
           className={`mb-12 text-center transition-all duration-700 ease-out ${
@@ -117,15 +172,15 @@ export function ContactSection() {
           }`}
           style={{ transitionDelay: isHeaderVisible ? "0.05s" : "0s" }}
         >
-          <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
-            Connect With Me
+          <h2 className="text-4xl font-bold font-headline text-foreground sm:text-5xl">
+            {translations[language].title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Let&apos;s Talk About Stars, Code, or Anything In Between
+            {translations[language].subtitle}
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div className="grid items-start grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           <div
             ref={formCardRef}
             className={`transition-all duration-700 ease-out ${
@@ -135,10 +190,10 @@ export function ContactSection() {
             }`}
             style={{ transitionDelay: isFormCardVisible ? "0.1s" : "0s" }}
           >
-            <Card className="bg-card/80 shadow-xl">
+            <Card className="shadow-xl bg-card/80">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                  <Send className="mr-3 h-7 w-7 text-primary" /> Send a Message
+                <CardTitle className="flex items-center text-2xl font-headline text-foreground">
+                  <Send className={`${language === "en" ? "mr-3" : "ml-3"} h-7 w-7 text-primary`} /> {translations[language].sendMessage}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -153,12 +208,12 @@ export function ContactSection() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex items-center text-muted-foreground">
-                            <User className="mr-2 h-4 w-4" />
-                            Full Name
+                            <User className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                            {translations[language].fullName}
                           </FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="Your Name"
+                              placeholder={translations[language].namePlaceholder}
                               {...field}
                               className="bg-input text-foreground placeholder:text-muted-foreground/70"
                             />
@@ -173,13 +228,13 @@ export function ContactSection() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex items-center text-muted-foreground">
-                            <Mail className="mr-2 h-4 w-4" />
-                            Email Address
+                            <Mail className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                            {translations[language].emailAddress}
                           </FormLabel>
                           <FormControl>
                             <Input
                               type="email"
-                              placeholder="your.email@example.com"
+                              placeholder={translations[language].emailPlaceholder}
                               {...field}
                               className="bg-input text-foreground placeholder:text-muted-foreground/70"
                             />
@@ -194,12 +249,12 @@ export function ContactSection() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="flex items-center text-muted-foreground">
-                            <MessageSquare className="mr-2 h-4 w-4" />
-                            Your Message
+                            <MessageSquare className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                            {translations[language].yourMessage}
                           </FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="Tell me about your project or just say hi!"
+                              placeholder={translations[language].messagePlaceholder}
                               {...field}
                               rows={5}
                               className="bg-input text-foreground placeholder:text-muted-foreground/70"
@@ -212,9 +267,9 @@ export function ContactSection() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full font-semibold shadow-lg hover:shadow-primary/50 transition-shadow duration-300"
+                      className="w-full font-semibold transition-shadow duration-300 shadow-lg hover:shadow-primary/50"
                     >
-                      <Send className="mr-2 h-5 w-5" /> Send Message
+                      <Send className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].sendButton}
                     </Button>
                   </form>
                 </Form>
@@ -231,82 +286,82 @@ export function ContactSection() {
             }`}
             style={{ transitionDelay: isInfoCardVisible ? "0.15s" : "0s" }}
           >
-            <Card className="bg-card/80 shadow-xl">
+            <Card className="shadow-xl bg-card/80">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                  <Mail className="mr-3 h-7 w-7 text-primary" />
-                  Direct Contact
+                <CardTitle className="flex items-center text-2xl font-headline text-foreground">
+                  <Mail className={`${language === "en" ? "mr-3" : "ml-3"} h-7 w-7 text-primary`} />
+                  {translations[language].directContact}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-muted-foreground">
                 <p className="flex items-center">
-                  <Mail className="mr-2 h-5 w-5 text-primary/80" />{" "}
+                  <Mail className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5 text-primary/80`} />{" "}
                   Mohammed.Aljablai@gmail.com
                 </p>
                 <p className="flex items-center">
-                  <Phone className="mr-2 h-5 w-5 text-primary/80" /> +967 770
-                  201 264
+                  <Phone className={`${language === "en" ? "mr-2 text" : "ml-2"} h-5 w-5 text-primary/80`} /> 
+                  <span dir="ltr">{"\+967 770 201 264"}</span>
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-card/80 shadow-xl">
+            <Card className="shadow-xl bg-card/80">
               <CardHeader>
-                <CardTitle className="font-headline text-2xl flex items-center text-foreground">
-                  <Linkedin className="mr-3 h-7 w-7 text-primary" />
-                  Find Me Online
+                <CardTitle className="flex items-center text-2xl font-headline text-foreground">
+                  <Linkedin className={`${language === "en" ? "mr-3" : "ml-3"} h-7 w-7 text-primary`} />
+                  {translations[language].findMeOnline}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <Button
                   variant="outline"
                   asChild
-                  className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                  className="justify-start w-full hover:bg-primary hover:text-primary-foreground"
                 >
                   <Link
                     href="https://www.linkedin.com/in/moajabali/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Linkedin className="mr-2 h-5 w-5" /> LinkedIn Profile
+                    <Linkedin className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].linkedinProfile}
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
                   asChild
-                  className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                  className="justify-start w-full hover:bg-primary hover:text-primary-foreground"
                 >
                   <Link
                     href="https://x.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Twitter className="mr-2 h-5 w-5" /> Twitter / X
+                    <Twitter className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].twitterX}
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
                   asChild
-                  className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                  className="justify-start w-full hover:bg-primary hover:text-primary-foreground"
                 >
                   <Link
                     href="https://github.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github className="mr-2 h-5 w-5" /> GitHub
+                    <Github className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].github}
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
                   asChild
-                  className="w-full justify-start hover:bg-primary hover:text-primary-foreground"
+                  className="justify-start w-full hover:bg-primary hover:text-primary-foreground"
                 >
                   <Link
                     href="https://www.facebook.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Facebook className="mr-2 h-5 w-5" /> Facebook Profile
+                    <Facebook className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].facebookProfile}
                   </Link>
                 </Button>
               </CardContent>

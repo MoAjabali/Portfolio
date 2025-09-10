@@ -2,8 +2,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code, Cpu, Rocket, Wrench, Gauge, Bug } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
+// أضف استيراد سياق اللغة
+import { useLanguage } from "@/context/LanguageContext"
 
 export function ServicesSection() {
+  // استخدام سياق اللغة
+  const { language } = useLanguage()
   const [sectionRef, isSectionVisible] = useScrollAnimation({
     threshold: 0.1,
     triggerOnce: true
@@ -13,49 +17,99 @@ export function ServicesSection() {
     triggerOnce: true
   })
 
-  const services = [
-    {
-      title: "Full-Stack Web Development",
-      description:
-        "Building complete websites from scratch using Laravel and React. Perfect for startups and medium-sized projects.",
-      icon: <Code className="h-8 w-8 text-primary" />
+  // إضافة ترجمات للمكون
+  const translations = {
+    en: {
+      title: "What I Offer",
+      subtitle: "Comprehensive Web Solutions",
+      services: [
+        {
+          title: "Full-Stack Web Development",
+          description:
+            "Building complete websites from scratch using Laravel and React. Perfect for startups and medium-sized projects.",
+          icon: <Code className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "RESTful API Development",
+          description:
+            "Creating secure APIs with Laravel/Node.js including JWT authentication, documentation, and testing.",
+          icon: <Cpu className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "Interactive Frontend Development",
+          description:
+            "Transforming designs into responsive interfaces with React, Next.js, and TailwindCSS.",
+          icon: <Rocket className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "Performance Optimization",
+          description:
+            "Improving loading speed, boosting SEO, and enhancing user experience.",
+          icon: <Gauge className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "Bug Fixing & Maintenance",
+          description:
+            "Providing technical support, updating code, and keeping systems running smoothly.",
+          icon: <Bug className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "System Modernization",
+          description:
+            "Upgrading legacy systems with modern technologies and best practices.",
+          icon: <Wrench className="h-8 w-8 text-primary" />
+        }
+      ]
     },
-    {
-      title: "RESTful API Development",
-      description:
-        "Creating secure APIs with Laravel/Node.js including JWT authentication, documentation, and testing.",
-      icon: <Cpu className="h-8 w-8 text-primary" />
-    },
-    {
-      title: "Interactive Frontend Development",
-      description:
-        "Transforming designs into responsive interfaces with React, Next.js, and TailwindCSS.",
-      icon: <Rocket className="h-8 w-8 text-primary" />
-    },
-    {
-      title: "Performance Optimization",
-      description:
-        "Improving loading speed, boosting SEO, and enhancing user experience.",
-      icon: <Gauge className="h-8 w-8 text-primary" />
-    },
-    {
-      title: "Bug Fixing & Maintenance",
-      description:
-        "Providing technical support, updating code, and keeping systems running smoothly.",
-      icon: <Bug className="h-8 w-8 text-primary" />
-    },
-    {
-      title: "System Modernization",
-      description:
-        "Upgrading legacy systems with modern technologies and best practices.",
-      icon: <Wrench className="h-8 w-8 text-primary" />
+    ar: {
+      title: "ما أقدمه",
+      subtitle: "حلول ويب شاملة",
+      services: [
+        {
+          title: "تطوير ويب متكامل",
+          description:
+            "بناء مواقع ويب كاملة من الصفر باستخدام Laravel و React. مثالي للشركات الناشئة والمشاريع متوسطة الحجم.",
+          icon: <Code className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "تطوير واجهات برمجة RESTful",
+          description:
+            "إنشاء واجهات برمجة آمنة مع Laravel/Node.js بما في ذلك مصادقة JWT والتوثيق والاختبار.",
+          icon: <Cpu className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "تطوير واجهات أمامية تفاعلية",
+          description:
+            "تحويل التصاميم إلى واجهات متجاوبة باستخدام React و Next.js و TailwindCSS.",
+          icon: <Rocket className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "تحسين الأداء",
+          description:
+            "تحسين سرعة التحميل وتعزيز تحسين محركات البحث وتحسين تجربة المستخدم.",
+          icon: <Gauge className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "إصلاح الأخطاء والصيانة",
+          description:
+            "تقديم الدعم الفني وتحديث الكود والحفاظ على تشغيل الأنظمة بسلاسة.",
+          icon: <Bug className="h-8 w-8 text-primary" />
+        },
+        {
+          title: "تحديث الأنظمة",
+          description:
+            "ترقية الأنظمة القديمة بالتقنيات الحديثة وأفضل الممارسات.",
+          icon: <Wrench className="h-8 w-8 text-primary" />
+        }
+      ]
     }
-  ]
+  }
 
   return (
     <section
       ref={sectionRef}
       id="services"
+      dir={language === "en" ? "ltr" : "rtl"}
       className="py-16 md:py-24 bg-background/80 backdrop-blur-sm"
     >
       <div className="container mx-auto max-w-screen-lg px-4">
@@ -68,15 +122,15 @@ export function ServicesSection() {
           }`}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
-            What I Offer
+            {translations[language].title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Comprehensive Web Solutions
+            {translations[language].subtitle}
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+          {translations[language].services.map((service, index) => (
             <div
               key={index}
               className={`transition-all duration-700 ease-out ${
