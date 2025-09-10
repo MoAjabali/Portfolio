@@ -1,6 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Portfolio Project
+
+## Overview
+A modern portfolio website built with Next.js, React, and Tailwind CSS. This project showcases my work, skills, and professional information.
+
+## Features
+- Responsive design
+- Dark/light mode
+- Project showcase section
+- Contact form
+- Multi-language support
+
+## Technologies
+- Next.js 15
+- React 19
+- Tailwind CSS
+- TypeScript (optional)
 
 ## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm/yarn/pnpm
+
+### Installation
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
 First, run the development server:
 
