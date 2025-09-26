@@ -36,7 +36,7 @@ const translations = {
       {
         title: "Articles Nodejs | Full-Stack Application",
         description: `
-          A dull-stack article management web app build with node.js, express.js, and MongoDB. Users can create, read, updated, and delete articles.
+          A full-stack article management web app build with node.js, express.js, and MongoDB. Users can create, read, updated, and delete articles.
         `,
         videoUrl: "/nodejs-article.webm",
         tags: ["Node.js & Express.js", "MongoDB", "EJS", "Bootstrap"],
