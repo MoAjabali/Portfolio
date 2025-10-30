@@ -34,6 +34,17 @@ const translations = {
     code: "Code",
     projects: [
       {
+        title: "TK plus | Full-Stack Events management system",
+        description: `
+          A full-stack web application for event management, including interactive user pages and an admin dashboard, with full control over events, tickets, and users.
+        `,
+        videoUrl: "/tkplus.webm",
+        tags: ["Node.js & Express.js", "Mysql", "HTML", "CSS", "JS"],
+        liveLink: "https://moajabali.github.io/tkplus-frontend/",
+        repoLink: "https://github.com/MoAjabali/tkplus-frontend",
+        category: "full-stack"
+      },
+      {
         title: "Articles Nodejs | Full-Stack Application",
         description: `
           A full-stack article management web app build with node.js, express.js, and MongoDB. Users can create, read, updated, and delete articles.
@@ -43,6 +54,17 @@ const translations = {
         liveLink: "https://articles-nodejs-8akj.onrender.com/",
         repoLink: "https://github.com/MoAjabali/articles-nodejs",
         category: "full-stack"
+      },
+      {
+        title: "Elzero | Dashboard",
+        description: `
+          Elzero Template Four is a fully responsive, modern website template built with pure HTML and CSS. Features a clean design with smooth animations, organized sections, and cross-browser compatibility - perfect for business or portfolio websites.
+        `,
+        videoUrl: "/elzero-template-4.webm",
+        tags: ["Pug.js", "SCSS", "Dashboard"],
+        liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
+        repoLink: "https://github.com/MoAjabali/Elzero-Template-Four",
+        category: "frontend"
       },
       {
         title: "Elzero | Multi section website",
@@ -116,6 +138,17 @@ const translations = {
     code: "الكود",
     projects: [
       {
+        title: "تذكر+ | لإدارة الفعاليات",
+        description: `
+          تطبيق ويب كامل لإدارة الفعاليات، يشمل واجهة مستخدم تفاعلية ولوحة تحكم للإدارة، مع إدارة الفعاليات والتذاكر والمستخدمين.  
+        `,
+        videoUrl: "/tkplus.webm",
+        tags: ["Node.js & Express.js", "Mysql", "HTML", "CSS", "JS"],
+        liveLink: "https://moajabali.github.io/tkplus-frontend/",
+        repoLink: "https://github.com/MoAjabali/tkplus-frontend",
+        category: "full-stack"
+      },
+      {
         title: "مقالات Node.js | تطبيق متكامل",
         description: `
           تطبيق ويب لإدارة المقالات مبني بـ node.js و express.js و MongoDB. يمكن للمستخدمين إنشاء وقراءة وتحديث وحذف المقالات.
@@ -125,6 +158,17 @@ const translations = {
         liveLink: "https://articles-nodejs-8akj.onrender.com/",
         repoLink: "https://github.com/MoAjabali/articles-nodejs",
         category: "full-stack"
+      },
+      {
+        title: "الزيرو | لوحة تحكم",
+        description: `
+          قالب الزيرو الرابع هو نموذج موقع ويب حديث سريع الاستجابة بالكامل، مبني باستخدام HTML وCSS النقيين. يتميز بتصميم أنيق مع تأثيرات حركية سلسة، وأقسام منظمة، وتوافق مع مختلف المتصفحات - مثالي لمواقع الأعمال أو portfolios.
+        `,
+        videoUrl: "/elzero-template-4.webm",
+        tags: ["Pug.js", "SCSS", "Dashboard"],
+        liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
+        repoLink: "https://github.com/MoAjabali/Elzero-Template-Four",
+        category: "frontend"
       },
       {
         title: "الزيرو | موقع متعدد الأقسام",
