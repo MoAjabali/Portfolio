@@ -67,6 +67,18 @@ const translations = {
         category: "frontend"
       },
       {
+        title: "Real Estate Management System",
+        description: `
+          A full-stack real estate management web app built with Laravel and MySQL.
+          Users can create, view, update, and delete property listings through a clean Blade-powered interface.
+        `,
+        videoUrl: "/laravelProperty.webm",
+        tags: ["Laravel", "Mysql", "blade", "Bootstrap"],
+        // liveLink: "https://articles-nodejs-8akj.onrender.com/",
+        repoLink: "https://github.com/MoAjabali/laravelProperty",
+        category: "full-stack"
+      },
+      {
         title: "Elzero | Multi section website",
         description: `
           A sleek, interactive web template build with HTML, CSS, And Animation (plus light JS). Featuring a top navigation bar, a Hero section, abd more. design responsively for excellent cross-device display. 
@@ -169,6 +181,17 @@ const translations = {
         liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
         repoLink: "https://github.com/MoAjabali/Elzero-Template-Four",
         category: "frontend"
+      },
+      {
+        title: "نظام إدارة عقارات",
+        description: `
+          تطبيق ويب بسيط لإدارة العقارات مبني بإطار Laravel و MySQL. يمكن للمستخدمين إضافة، عرض، تعديل، وحذف العقارات بسهولة عبر واجهة Blade أنيقة.
+        `,
+        videoUrl: "/laravelProperty.webm",
+        tags: ["Laravel", "Mysql", "blade", "Bootstrap"],
+        // liveLink: "https://articles-nodejs-8akj.onrender.com/",
+        repoLink: "https://github.com/MoAjabali/laravelProperty",
+        category: "full-stack"
       },
       {
         title: "الزيرو | موقع متعدد الأقسام",
@@ -286,7 +309,8 @@ function ProjectCard({ project, index, language }) {
               asChild
               className="hover:bg-primary hover:text-primary-foreground"
             >
-              <Link
+            {
+              project.liveLink && <Link
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -294,6 +318,8 @@ function ProjectCard({ project, index, language }) {
               >
                 <ExternalLink className={`${language === "en" ? "mr-1.5" : "ml-1.5"} h-4 w-4`} /> {translations[language].liveDemo}
               </Link>
+            }
+              
             </Button>
             <Button
               variant="ghost"
