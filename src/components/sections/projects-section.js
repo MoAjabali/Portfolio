@@ -56,6 +56,18 @@ const translations = {
         category: "full-stack"
       },
       {
+        title: "React todo list | React Application",
+        description: `
+          A simple web app built with React.js for managing daily tasks.  
+          Users can create, view, edit, and delete tasks through a clean and responsive Bootstrap-powered interface.
+        `,
+        videoUrl: "/react-todolist-ar.webm",
+        tags: ["React.Js", "MUI"],
+        liveLink: "https://react-todolist-ar.vercel.app/",
+        repoLink: "https://github.com/MoAjabali/react-todolist-ar",
+        category: "frontend"
+      },
+      {
         title: "Elzero | Dashboard",
         description: `
           Elzero Template Four is a fully responsive, modern website template built with pure HTML and CSS. Features a clean design with smooth animations, organized sections, and cross-browser compatibility - perfect for business or portfolio websites.
@@ -65,6 +77,18 @@ const translations = {
         liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
         repoLink: "https://github.com/MoAjabali/Elzero-Template-Four",
         category: "frontend"
+      },
+      {
+        title: "Book Club | Full-Stack Application",
+        description: `
+          A full-stack digital library web app built with PHP and MySQL.  
+          Users can create, view, update, and delete books, upload files, and search for books through a clean Bootstrap-powered interface.
+        `,
+        videoUrl: "/book-club.webm",
+        tags: ["PHP", "Authentications", "bootstrap"],
+        // liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
+        repoLink: "https://github.com/MoAjabali/Book-Club",
+        category: "full-stack"
       },
       {
         title: "Real Estate Management System",
@@ -172,6 +196,18 @@ const translations = {
         category: "full-stack"
       },
       {
+        title: "مهامي | تطبيق todo list",
+        description: `
+          A simple web app built with React.js for managing daily tasks.  
+          Users can create, view, edit, and delete tasks through a clean and responsive Bootstrap-powered interface.
+        `,
+        videoUrl: "/react-todolist-ar.webm",
+        tags: ["React.Js", "MUI"],
+        liveLink: "https://react-todolist-ar.vercel.app/",
+        repoLink: "https://github.com/MoAjabali/react-todolist-ar",
+        category: "frontend"
+      },
+      {
         title: "الزيرو | لوحة تحكم",
         description: `
           قالب الزيرو الرابع هو نموذج موقع ويب حديث سريع الاستجابة بالكامل، مبني باستخدام HTML وCSS النقيين. يتميز بتصميم أنيق مع تأثيرات حركية سلسة، وأقسام منظمة، وتوافق مع مختلف المتصفحات - مثالي لمواقع الأعمال أو portfolios.
@@ -181,6 +217,17 @@ const translations = {
         liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
         repoLink: "https://github.com/MoAjabali/Elzero-Template-Four",
         category: "frontend"
+      },
+      {
+        title: "Book Club",
+        description: `
+          تطبيق ويب لإدارة مكتبة رقمية مبني بـ PHP وMySQL. يمكن للمستخدمين إضافة، عرض، تعديل، وحذف الكتب بسهولة، مع رفع الملفات والبحث عن الكتب، عبر واجهة Bootstrap أنيقة.
+        `,
+        videoUrl: "/book-club.webm",
+        tags: ["PHP", "Authentications", "bootstrap"],
+        // liveLink: "https://moajabali.github.io/Elzero-Template-Four/dist/dashboard.html",
+        repoLink: "https://github.com/MoAjabali/Book-Club",
+        category: "full-stack"
       },
       {
         title: "نظام إدارة عقارات",
