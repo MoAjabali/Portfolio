@@ -40,7 +40,7 @@ const translations = {
         `,
         videoUrl: "/sader.webm",
         tags: ["Laravel", "API", "MySql", "React", "Next.js"],
-        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        liveLink: "https://sader-frontend.vercel.app/",
         repoLink: "https://github.com/MoAjabali/sader-frontend",
         category: "full-stack"
       },
@@ -235,7 +235,7 @@ const translations = {
         `,
         videoUrl: "/sader.webm",
         tags: ["Laravel", "API", "MySql", "React", "Next.js"],
-        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        liveLink: "https://sader-frontend.vercel.app/",
         repoLink: "https://github.com/MoAjabali/sader-frontend",
         category: "full-stack"
       },
