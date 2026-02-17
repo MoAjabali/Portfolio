@@ -34,6 +34,50 @@ const translations = {
     code: "Code",
     projects: [
       {
+        title: "Sader | Online Store",
+        description: `
+          A full-featured online store for organic products built with Next.js 14 and React, connected to a PHP Laravel API, offering complete product, orders, favorites, and user account management.
+        `,
+        videoUrl: "/sader.webm",
+        tags: ["Laravel", "API", "MySql", "React", "Next.js"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/sader-frontend",
+        category: "full-stack"
+      },
+      {
+        title: "Hashtag It | Full-Stack Social Media App",
+        description: `
+          A mini-Twitter social media platform built with PHP (Advanced MVC), handling users, posts, interactions, and following, designed as a scalable foundation for a professional social media application.
+        `,
+        videoUrl: "/hashtagit.webm",
+        tags: ["PHP", "Mysql", "MVC"],
+        liveLink: "http://mini-twitter.fwh.is",
+        repoLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        category: "full-stack"
+      },
+      {
+        title: "Roud Map | Full-Stack App",
+        description: `
+          A roadmap-based educational platform built with a custom PHP MVC architecture, enabling structured specialization paths, skill breakdown, and user authentication.
+        `,
+        videoUrl: "/roud.webm",
+        tags: ["PHP", "Mysql", "MVC", "Bootstrap 5"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/RoudMap",
+        category: "full-stack"
+      },
+      {
+        title: "My Simple Blog | Full-Stack Blogs management system",
+        description: `
+          A full-stack blogging platform powered by a custom PHP MVC API and a separate React client with JWT authentication and full content management.
+        `,
+        videoUrl: "/blog.webm",
+        tags: ["PHP", "Mysql", "MVC", "RESTful APIs", "React", "Next.js"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/react-simpleApi-blog",
+        category: "full-stack"
+      },
+      {
         title: "TK plus | Full-Stack Events management system",
         description: `
           A full-stack web application for event management, including interactive user pages and an admin dashboard, with full control over events, tickets, and users.
@@ -43,6 +87,17 @@ const translations = {
         liveLink: "https://moajabali.github.io/tkplus-frontend/",
         repoLink: "https://github.com/MoAjabali/tkplus-frontend",
         category: "full-stack"
+      },
+      {
+        title: "wather App | React Weather App",
+        description: `
+          A responsive weather web application built with React.js, featuring real-time API integration and full bilingual (Arabic/English) support with dynamic RTL/LTR switching.
+        `,
+        videoUrl: "/wather-app.webm",
+        tags: ["React.js", "Tailwind CSS", "Vite", "Axios", "i18next"],
+        liveLink: "https://react-simple-weatherapp.vercel.app/",
+        repoLink: "https://github.com/MoAjabali/react-simple-weatherapp",
+        category: "frontend"
       },
       {
         title: "Articles Nodejs | Full-Stack Application",
@@ -174,6 +229,50 @@ const translations = {
     code: "الكود",
     projects: [
       {
+        title: "سدر | متجر إلكتروني",
+        description: `
+          متجر إلكتروني كامل للمنتجات العضوية مبني بـ Next.js 14 وReact، مع Backend API باستخدام PHP Laravel، يتيح إدارة المنتجات، الطلبات، المفضلة، والحسابات الشخصية بشكل متكامل.
+        `,
+        videoUrl: "/sader.webm",
+        tags: ["Laravel", "API", "MySql", "React", "Next.js"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/sader-frontend",
+        category: "full-stack"
+      },
+      {
+        title: "Hashtag It | منصة تواصل اجتماعي",
+        description: `
+          منصة تواصل اجتماعي مشابهة لتويتر، مبنية بـ PHP (Advanced MVC) مع إدارة المستخدمين، المنشورات، التفاعلات، والمتابعة، مصممة لتكون قاعدة قوية وقابلة للتوسع لأي منصة اجتماعية.
+        `,
+        videoUrl: "/hashtagit.webm",
+        tags: ["PHP", "Mysql", "MVC"],
+        liveLink: "http://mini-twitter.fwh.is",
+        repoLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        category: "full-stack"
+      },
+      {
+        title: "خرائط التعلم",
+        description: `
+          منصة تعليمية لإدارة المسارات التقنية مبنية بهندسة MVC باستخدام PHP، تتيح عرض التخصصات، تفكيك المهارات، وربطها بمصادر تعليمية مع دعم تسجيل المستخدمين.
+        `,
+        videoUrl: "/roud.webm",
+        tags: ["PHP", "Mysql", "MVC", "Bootstrap 5"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/RoudMap",
+        category: "full-stack"
+      },
+      {
+        title: "مدونتي البسيطة | تطبيق ويب لإدارة المدونات",
+        description: `
+          منصة تدوين متكاملة تعتمد على API مبنية بـ PHP وفق نمط MVC، مع واجهة React مستقلة تدعم JWT Authentication وإدارة كاملة للمحتوى.
+        `,
+        videoUrl: "/blog.webm",
+        tags: ["PHP", "Mysql", "MVC", "RESTful APIs", "React", "Next.js"],
+        // liveLink: "https://github.com/MoAjabali/php-simpleAPI-blog",
+        repoLink: "https://github.com/MoAjabali/react-simpleApi-blog",
+        category: "full-stack"
+      },
+      {
         title: "تذكر+ | لإدارة الفعاليات",
         description: `
           تطبيق ويب كامل لإدارة الفعاليات، يشمل واجهة مستخدم تفاعلية ولوحة تحكم للإدارة، مع إدارة الفعاليات والتذاكر والمستخدمين.  
@@ -183,6 +282,17 @@ const translations = {
         liveLink: "https://moajabali.github.io/tkplus-frontend/",
         repoLink: "https://github.com/MoAjabali/tkplus-frontend",
         category: "full-stack"
+      },
+      {
+        title: "المناخ | برنامج React للطقس",
+        description: `
+        تطبيق ويب تفاعلي لعرض بيانات الطقس مبني بـ React.js، يدعم العربية والإنجليزية مع تبديل RTL/LTR ديناميكياً، ويعتمد على API حقيقي لجلب البيانات اللحظية.
+        `,
+        videoUrl: "/wather-app.webm",
+        tags: ["React.js", "Tailwind CSS", "Vite", "Axios", "i18next"],
+        liveLink: "https://react-simple-weatherapp.vercel.app/",
+        repoLink: "https://github.com/MoAjabali/react-simple-weatherapp",
+        category: "frontend"
       },
       {
         title: "مقالات Node.js | تطبيق متكامل",
@@ -308,11 +418,10 @@ function ProjectCard({ project, index, language }) {
   return (
     <div
       ref={cardRef}
-      className={`transition-all duration-700 ease-out transform ${
-        isVisible
-          ? "opacity-100 translate-y-0 scale-100"
-          : "opacity-0 translate-y-10 scale-95"
-      }`}
+      className={`transition-all duration-700 ease-out transform ${isVisible
+        ? "opacity-100 translate-y-0 scale-100"
+        : "opacity-0 translate-y-10 scale-95"
+        }`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
       <Card className="flex flex-col h-full overflow-hidden shadow-xl bg-card/80 hover:shadow-primary/30">
@@ -356,17 +465,17 @@ function ProjectCard({ project, index, language }) {
               asChild
               className="hover:bg-primary hover:text-primary-foreground"
             >
-            {
-              project.liveLink && <Link
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View live demo of ${project.title}`}
-              >
-                <ExternalLink className={`${language === "en" ? "mr-1.5" : "ml-1.5"} h-4 w-4`} /> {translations[language].liveDemo}
-              </Link>
-            }
-              
+              {
+                project.liveLink && <Link
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View live demo of ${project.title}`}
+                >
+                  <ExternalLink className={`${language === "en" ? "mr-1.5" : "ml-1.5"} h-4 w-4`} /> {translations[language].liveDemo}
+                </Link>
+              }
+
             </Button>
             <Button
               variant="ghost"
@@ -420,11 +529,10 @@ export function ProjectsSection() {
       <div className="container max-w-screen-xl px-4 mx-auto">
         <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
-            isHeaderVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
+          className={`mb-12 text-center transition-all duration-700 ease-out ${isHeaderVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+            }`}
           style={{ transitionDelay: isHeaderVisible ? "0.05s" : "0s" }}
         >
           <h2 className="text-4xl font-bold font-headline text-foreground sm:text-5xl">
@@ -441,11 +549,10 @@ export function ProjectsSection() {
                 key={category.id}
                 variant={activeCategory === category.id ? "default" : "outline"}
                 onClick={() => setActiveCategory(category.id)}
-                className={`transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-primary/10"
-                }`}
+                className={`transition-all duration-300 ${activeCategory === category.id
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-primary/10"
+                  }`}
               >
                 {category.label}
               </Button>
