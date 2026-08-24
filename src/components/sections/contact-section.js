@@ -3,18 +3,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useToast } from "@/hooks/use-toast" // Updated import path
+import { toast } from "@/components/ui/toast"
 import {
   Mail,
   Send,
@@ -28,10 +21,8 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/useScrollAnimation"
-// أضف استيراد سياق اللغة
 import { useLanguage } from "@/context/LanguageContext"
 
-// Add this import at the top
 import emailjs from "@emailjs/browser"
 
 const formSchema = z.object({
@@ -42,7 +33,6 @@ const formSchema = z.object({
     .min(10, { message: "Message must be at least 10 characters." })
 })
 
-// إضافة ترجمات للمكون
 const translations = {
   en: {
     title: "Connect With Me",
@@ -61,7 +51,6 @@ const translations = {
     twitterX: "Twitter / X",
     github: "GitHub",
     facebookProfile: "Facebook Profile",
-    // رسائل النجاح والخطأ
     successTitle: "Message Sent Successfully!",
     successDesc: "Thanks for reaching out. I'll get back to you soon!",
     errorTitle: "Failed to Send Message",
@@ -84,7 +73,6 @@ const translations = {
     twitterX: "تويتر / إكس",
     github: "جيت هاب",
     facebookProfile: "حساب فيسبوك",
-    // رسائل النجاح والخطأ
     successTitle: "تم إرسال الرسالة بنجاح!",
     successDesc: "شكراً للتواصل. سأرد عليك قريباً!",
     errorTitle: "فشل في إرسال الرسالة",
@@ -93,10 +81,13 @@ const translations = {
 }
 
 export function ContactSection() {
-  // استخدام سياق اللغة
   const { language } = useLanguage()
-  const { toast } = useToast()
-  const form = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset
+  } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -138,19 +129,19 @@ export function ContactSection() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
 
-      toast({
+      toast.add({
         title: translations[language].successTitle,
         description: translations[language].successDesc,
-        variant: "default"
+        type: "success",
       })
 
-      form.reset()
+      reset()
     } catch (error) {
       console.error("Error sending email:", error)
-      toast({
+      toast.add({
         title: translations[language].errorTitle,
         description: translations[language].errorDesc,
-        variant: "destructive"
+        type: "error"
       })
     }
   }
@@ -197,82 +188,94 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
-                  >
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center text-muted-foreground">
-                            <User className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
-                            {translations[language].fullName}
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder={translations[language].namePlaceholder}
-                              {...field}
-                              className="bg-input text-foreground placeholder:text-muted-foreground/70"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center text-muted-foreground">
-                            <Mail className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
-                            {translations[language].emailAddress}
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              placeholder={translations[language].emailPlaceholder}
-                              {...field}
-                              className="bg-input text-foreground placeholder:text-muted-foreground/70"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center text-muted-foreground">
-                            <MessageSquare className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
-                            {translations[language].yourMessage}
-                          </FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder={translations[language].messagePlaceholder}
-                              {...field}
-                              rows={5}
-                              className="bg-input text-foreground placeholder:text-muted-foreground/70"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full font-semibold transition-shadow duration-300 shadow-lg hover:shadow-primary/50"
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="space-y-6"
+                  noValidate
+                >
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="name"
+                      className="flex items-center text-muted-foreground"
                     >
-                      <Send className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].sendButton}
-                    </Button>
-                  </form>
-                </Form>
+                      <User className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                      {translations[language].fullName}
+                    </Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder={translations[language].namePlaceholder}
+                      aria-invalid={!!errors.name}
+                      className={`bg-input text-foreground placeholder:text-muted-foreground/70 h-10 ${errors.name ? "border-destructive focus-visible:ring-destructive/50" : ""}`}
+                      {...register("name")}
+                    />
+                    {errors.name && (
+                      <p className="text-sm font-medium text-destructive">
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="email"
+                      className="flex items-center text-muted-foreground"
+                    >
+                      <Mail className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                      {translations[language].emailAddress}
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder={translations[language].emailPlaceholder}
+                      aria-invalid={!!errors.email}
+                      className={`bg-input text-foreground placeholder:text-muted-foreground/70 h-10 ${errors.email ? "border-destructive focus-visible:ring-destructive/50" : ""}`}
+                      {...register("email")}
+                    />
+                    {errors.email && (
+                      <p className="text-sm font-medium text-destructive">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="message"
+                      className="flex items-center text-muted-foreground"
+                    >
+                      <MessageSquare className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
+                      {translations[language].yourMessage}
+                    </Label>
+                    <Textarea
+                      id="message"
+                      placeholder={translations[language].messagePlaceholder}
+                      rows={5}
+                      aria-invalid={!!errors.message}
+                      className={`bg-input text-foreground placeholder:text-muted-foreground/70 ${errors.message ? "border-destructive focus-visible:ring-destructive/50" : ""}`}
+                      {...register("message")}
+                    />
+                    {errors.message && (
+                      <p className="text-sm font-medium text-destructive">
+                        {errors.message.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full font-semibold transition-shadow duration-300 shadow-lg hover:shadow-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Send className={`${language === "en" ? "mr-0.5" : "ml-0.5"} h-5 w-5`} />
+                    {isSubmitting ? (
+                      language === "en" ? "Sending..." : "جاري الإرسال..."
+                    ) : (
+                      translations[language].sendButton
+                    )}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
@@ -299,8 +302,8 @@ export function ContactSection() {
                   Mohammed.Aljablai@gmail.com
                 </p>
                 <p className="flex items-center">
-                  <Phone className={`${language === "en" ? "mr-2 text" : "ml-2"} h-5 w-5 text-primary/80`} /> 
-                  <span dir="ltr">{"\+967 770 201 264"}</span>
+                  <Phone className={`${language === "en" ? "mr-2 text" : "ml-2"} h-5 w-5 text-primary/80`} />
+                  <span dir="ltr">{"+967 770 201 264"}</span>
                 </p>
               </CardContent>
             </Card>
@@ -321,6 +324,7 @@ export function ContactSection() {
                     href="https://www.linkedin.com/in/moajabali/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex"
                   >
                     <Linkedin className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].linkedinProfile}
                   </Link>
@@ -334,6 +338,7 @@ export function ContactSection() {
                     href="https://x.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex"
                   >
                     <Twitter className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].twitterX}
                   </Link>
@@ -347,6 +352,7 @@ export function ContactSection() {
                     href="https://github.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex"
                   >
                     <Github className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].github}
                   </Link>
@@ -360,6 +366,7 @@ export function ContactSection() {
                     href="https://www.facebook.com/MoAjabali"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex"
                   >
                     <Facebook className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} /> {translations[language].facebookProfile}
                   </Link>
