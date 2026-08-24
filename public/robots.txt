@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /api/sitemap
+
+# Crawl-delay directive (optional)
+Crawl-delay: 10
+
+# Prevent indexing of internal API routes except sitemap
+Disallow: /api/
+Allow: /api/sitemap
+
+# Sitemap references
+Sitemap: https://moajabali.com/sitemap.xml
+Sitemap: https://moajabali.com/api/sitemap
