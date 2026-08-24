@@ -276,7 +276,7 @@ function SkillItem({ skill, isVisible, language }) {
       <Progress
         dir={language === "ar" ? "rtl" : "ltr"}
         value={progress}
-        className="h-2 [&>div]:bg-primary transition-all duration-500 ease-out"
+        className=" h-2  transition-all duration-500 ease-out"
         aria-label={`${skill.name} proficiency ${skill.level}%`}
       />
     </div>

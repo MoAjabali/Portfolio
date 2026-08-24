@@ -62,7 +62,7 @@ export function Header() {
           aria-label="Stardust Portfolio Home"
         >
           <img src="/logo.svg" className="h-7 w-7 text-primary" alt="logo" />
-          <span className="hidden text-lg min-[400px]:text-2xl font-bold  min-[360px]:flex font-headline text-foreground">
+          <span className="hidden text-lg min-[400px]:text-xl font-bold  min-[360px]:flex text-foreground">
             {translations[language].logo}
           </span>
           <span className="min-[360px]:hidden text-lg font-bold  font-headline text-foreground">

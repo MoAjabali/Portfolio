@@ -459,24 +459,22 @@ function ProjectCard({ project, index, language }) {
         </CardContent>
         <CardFooter className="flex items-center justify-between p-6 mt-auto border-t border-border/50">
           <div className="flex space-x-2">
-            <Button
+            { project.liveLink && <Button
               variant="outline"
               size="sm"
               asChild
               className="hover:bg-primary hover:text-primary-foreground"
             >
-              {
-                project.liveLink && <Link
+              <Link
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View live demo of ${project.title}`}
+                  className="flex"
                 >
                   <ExternalLink className={`${language === "en" ? "mr-1.5" : "ml-1.5"} h-4 w-4`} /> {translations[language].liveDemo}
                 </Link>
-              }
-
-            </Button>
+            </Button>}
             <Button
               variant="ghost"
               size="sm"
@@ -488,6 +486,7 @@ function ProjectCard({ project, index, language }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View source code of ${project.title} on GitHub`}
+                className="flex"
               >
                 <Github className={`${language === "en" ? "mr-1.5" : "ml-1.5"} h-4 w-4`} /> {translations[language].code}
               </Link>
@@ -578,6 +577,7 @@ export function ProjectsSection() {
               href="https://github.com/MoAjabali"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex"
             >
               <Rocket className={`${language === "en" ? "mr-2" : "ml-2"} h-5 w-5`} />
               {translations[language].exploreMore}

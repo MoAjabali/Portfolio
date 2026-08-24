@@ -102,11 +102,10 @@ export function SelfLearningSection() {
       <div className="container px-4 mx-auto md:px-8 lg:px-16">
         <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
-            isHeaderVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
+          className={`mb-12 text-center transition-all duration-700 ease-out ${isHeaderVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+            }`}
         >
           <h2 className="text-4xl font-bold font-headline text-foreground sm:text-5xl">
             {translations[language].sectionTitle}
@@ -123,20 +122,21 @@ export function SelfLearningSection() {
           dir={language === "ar" ? "rtl" : "ltr"}
         >
           <TabsList
+            dir={language === "ar" ? "rtl" : "ltr"}
             ref={sectionRef}
-            className={`h-fit flex md:flex-col flex-wrap pb-2 md:pb-0 gap-2 p-2 bg-background/50 transition-all duration-700 ease-out ${
-              isSectionVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-10"
-            }`}
+            className={`h-fit flex md:flex-col flex-wrap pb-2 md:pb-0 gap-2 p-2 bg-background/50 transition-all duration-700 ease-out ${isSectionVisible
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-10"
+              } `}
+            variant="line"
           >
             {translations[language].courses.map((course, index) => (
               <TabsTrigger
                 key={index}
                 value={index.toString()}
-                className={`data-[state=active]:bg-primary/10 justify-start gap-2 min-w-[200px] md:min-w-auto text-sm md:text-base px-3 py-2 ${
-                  language === "ar" ? "text-right" : "text-left"
-                }`}
+                dir={language === "ar" ? "rtl" : "ltr"}
+                className={`bg-primary/10 justify-start gap-2 min-w-[200px] md:min-w-auto text-sm md:text-base px-3 py-2 ${language === "ar" ? "text-right" : "text-left"
+                  }`}
               >
                 {courseIcons[index]}
                 <span className="truncate">{course.platform}</span>
@@ -149,11 +149,10 @@ export function SelfLearningSection() {
               <TabsContent
                 key={index}
                 value={index.toString()}
-                className={`transition-all duration-700 ease-out ${
-                  isSectionVisible
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
-                }`}
+                className={`transition-all duration-700 ease-out ${isSectionVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+                  }`}
                 style={{ transitionDelay: `${index * 0.15}s` }}
               >
                 <Card className="mx-2 shadow-xl bg-card/80 md:mx-0">
@@ -168,14 +167,12 @@ export function SelfLearningSection() {
                   <CardContent className="space-y-4">
                     <div className="grid gap-4">
                       <div>
-                        <h3 className={`text-base font-semibold mb-2 border-primary pl-2 ${
-                          language === "ar" ? "border-r-4 pr-2 text-right" : "text-left border-l-4"
-                        }`}>
+                        <h3 className={`text-base font-semibold mb-2 border-primary pl-2 ${language === "ar" ? "border-r-4 pr-2 text-right" : "text-left border-l-4"
+                          }`}>
                           {translations[language].details}
                         </h3>
-                        <p className={`text-muted-foreground leading-relaxed ${
-                          language === "ar" ? "text-right" : "text-left"
-                        }`}>
+                        <p className={`text-muted-foreground leading-relaxed ${language === "ar" ? "text-right" : "text-left"
+                          }`}>
                           {course.description}
                         </p>
                       </div>

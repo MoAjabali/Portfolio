@@ -112,7 +112,7 @@ function EducationTimelineItem({ edu, index, language }) {
       </div>
       <div className={`${language === "en" ? "ml-6" : "mr-6"} flex-grow`}>
         <Card className="overflow-hidden shadow-xl bg-card/80">
-          <CardHeader className="p-6">
+          <CardHeader >
             <div>
               <CardTitle className="text-2xl font-headline text-foreground">
                 {edu.institution}
@@ -122,7 +122,7 @@ function EducationTimelineItem({ edu, index, language }) {
               </CardDescription>
             </div>
           </CardHeader>
-          <CardContent className="p-6 pt-0 space-y-3">
+          <CardContent className="">
             <div className="flex items-center text-sm text-muted-foreground">
               <CalendarDays className={`${language === "en" ? "mr-2" : "ml-2"} h-4 w-4`} />
               <span>{edu.period}</span>

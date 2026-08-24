@@ -115,11 +115,10 @@ export function ServicesSection() {
       <div className="container mx-auto max-w-screen-lg px-4">
         <header
           ref={headerRef}
-          className={`mb-12 text-center transition-all duration-700 ease-out ${
-            isHeaderVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
+          className={`mb-12 text-center transition-all duration-700 ease-out ${isHeaderVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+            }`}
         >
           <h2 className="font-headline text-4xl font-bold text-foreground sm:text-5xl">
             {translations[language].title}
@@ -133,11 +132,10 @@ export function ServicesSection() {
           {translations[language].services.map((service, index) => (
             <div
               key={index}
-              className={`transition-all duration-700 ease-out ${
-                isSectionVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
+              className={`transition-all duration-700 ease-out ${isSectionVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+                }`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <Card className="h-full bg-card/80 shadow-xl hover:shadow-primary/30 transition-shadow">

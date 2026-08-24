@@ -65,55 +65,50 @@ export function HeroSection() {
       <div className="container mx-auto max-w-screen-md px-4 text-center">
         <h1
           ref={h1Ref}
-          className={`font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl transition-all duration-700 ease-out ${
-            isH1Visible
+          className={`font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl transition-all duration-700 ease-out ${isH1Visible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
           style={{ transitionDelay: isH1Visible ? "0.1s" : "0s" }}
         >
           {transition[language].title}
         </h1>
         <p
           ref={p1Ref}
-          className={`text-lg text-muted-foreground max-w-xl mx-auto text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
-            isP1Visible
+          className={`text-lg text-muted-foreground max-w-xl mx-auto text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${language=="ar" && "pt-3"} ${isP1Visible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
           style={{ transitionDelay: isP1Visible ? "0.15s" : "0s" }}
         >
           {transition[language].simpleWords}
         </p>
         <p
           ref={p1Ref}
-          className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${
-            isP1Visible
+          className={`mt-6 max-w-xl mx-auto text-lg text-muted-foreground sm:text-xl md:text-2xl transition-all duration-700 ease-out ${isP1Visible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
           style={{ transitionDelay: isP1Visible ? "0.15s" : "0s" }}
         >
           {transition[language].body}
         </p>
         <p
           ref={p2Ref}
-          className={`mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg transition-all duration-700 ease-out ${
-            isP2Visible
+          className={`mt-4 max-w-xl mx-auto text-md text-primary sm:text-lg transition-all duration-700 ease-out ${isP2Visible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
           style={{ transitionDelay: isP2Visible ? "0.2s" : "0s" }}
         >
           {transition[language].slagone}
         </p>
         <div
           ref={buttonsRef}
-          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 ease-out ${
-            isButtonsVisible
+          className={`mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 ease-out ${isButtonsVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
-          }`}
+            }`}
           style={{ transitionDelay: isButtonsVisible ? "0.25s" : "0s" }}
         >
           <Button
@@ -135,9 +130,8 @@ export function HeroSection() {
       </div>
       <div
         ref={scrollIconRef}
-        className={`absolute bottom-6 left-1/2 -ml-4 transition-opacity duration-700 ease-out ${
-          isScrollIconVisible ? "opacity-100 animate-bounce" : "opacity-0"
-        }`}
+        className={`absolute bottom-6 left-1/2 -ml-4 transition-opacity duration-700 ease-out ${isScrollIconVisible ? "opacity-100 animate-bounce" : "opacity-0"
+          }`}
         style={{ transitionDelay: isScrollIconVisible ? "0.3s" : "0s" }}
       >
         <Link href="#about" aria-label="Scroll to About Me section">
